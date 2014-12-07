@@ -6,6 +6,8 @@
 
 package Package;
 
+import Classes.Deck;
+
 /**
  *
  * @author BK
@@ -106,6 +108,8 @@ public class StartGUI extends javax.swing.JFrame {
             public void run() {
                 new StartGUI().setVisible(true);
             }
+            
+            Deck deck = new Deck();
         });
     }
 

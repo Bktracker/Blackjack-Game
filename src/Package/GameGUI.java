@@ -32,7 +32,23 @@ public class GameGUI extends javax.swing.JFrame {
         StandB = new javax.swing.JLabel();
         HitB = new javax.swing.JLabel();
         DeckDeal = new javax.swing.JLabel();
-        dCardLabel = new javax.swing.JLabel();
+        dCardLabel9 = new javax.swing.JLabel();
+        dCardLabel8 = new javax.swing.JLabel();
+        dCardLabel7 = new javax.swing.JLabel();
+        dCardLabel6 = new javax.swing.JLabel();
+        dCardLabel5 = new javax.swing.JLabel();
+        dCardLabel4 = new javax.swing.JLabel();
+        dCardLabel3 = new javax.swing.JLabel();
+        dCardLabel2 = new javax.swing.JLabel();
+        dCardLabel1 = new javax.swing.JLabel();
+        pCardLabel9 = new javax.swing.JLabel();
+        pCardLabel8 = new javax.swing.JLabel();
+        pCardLabel7 = new javax.swing.JLabel();
+        pCardLabel6 = new javax.swing.JLabel();
+        pCardLabel5 = new javax.swing.JLabel();
+        pCardLabel4 = new javax.swing.JLabel();
+        pCardLabel3 = new javax.swing.JLabel();
+        pCardLabel2 = new javax.swing.JLabel();
         pCardLabel1 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
@@ -56,10 +72,63 @@ public class GameGUI extends javax.swing.JFrame {
         HitB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(HitB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 130, 50));
         getContentPane().add(DeckDeal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 36, 90, 80));
-        getContentPane().add(dCardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 130));
-        getContentPane().add(pCardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 156, 90, 130));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src first game screen.png"))); // NOI18N
+        dCardLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 90, 135));
+
+        dCardLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 90, 135));
+
+        dCardLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 90, 135));
+
+        dCardLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 90, 135));
+
+        dCardLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 90, 135));
+
+        dCardLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 90, 135));
+
+        dCardLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 90, 135));
+
+        dCardLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(dCardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 90, 135));
+
+        dCardLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/h10.png"))); // NOI18N
+        getContentPane().add(dCardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 90, 135));
+
+        pCardLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(pCardLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 90, 135));
+
+        pCardLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(pCardLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 90, 135));
+
+        pCardLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(pCardLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 90, 135));
+
+        pCardLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(pCardLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 90, 135));
+
+        pCardLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(pCardLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 90, 135));
+
+        pCardLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        pCardLabel4.setToolTipText("");
+        getContentPane().add(pCardLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 90, 135));
+
+        pCardLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
+        getContentPane().add(pCardLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 90, 135));
+
+        pCardLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/d8.png"))); // NOI18N
+        getContentPane().add(pCardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 90, 135));
+
+        pCardLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/c10.png"))); // NOI18N
+        getContentPane().add(pCardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 135));
+
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src no cards.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 404));
 
         pack();
@@ -112,7 +181,23 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JLabel HitB;
     private javax.swing.JLabel SettingsB;
     private javax.swing.JLabel StandB;
-    private javax.swing.JLabel dCardLabel;
+    private javax.swing.JLabel dCardLabel1;
+    private javax.swing.JLabel dCardLabel2;
+    private javax.swing.JLabel dCardLabel3;
+    private javax.swing.JLabel dCardLabel4;
+    private javax.swing.JLabel dCardLabel5;
+    private javax.swing.JLabel dCardLabel6;
+    private javax.swing.JLabel dCardLabel7;
+    private javax.swing.JLabel dCardLabel8;
+    private javax.swing.JLabel dCardLabel9;
     private javax.swing.JLabel pCardLabel1;
+    private javax.swing.JLabel pCardLabel2;
+    private javax.swing.JLabel pCardLabel3;
+    private javax.swing.JLabel pCardLabel4;
+    private javax.swing.JLabel pCardLabel5;
+    private javax.swing.JLabel pCardLabel6;
+    private javax.swing.JLabel pCardLabel7;
+    private javax.swing.JLabel pCardLabel8;
+    private javax.swing.JLabel pCardLabel9;
     // End of variables declaration//GEN-END:variables
 }

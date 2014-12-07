@@ -6,10 +6,29 @@
 
 package Classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author BK
  */
 public class Deck {
     
+   List deck = new ArrayList<Card>();
+
+    public Deck() {
+        for(int suit=0;suit<4;suit++)
+        {
+            for(int rank =2;rank<13;rank++)
+            {
+                deck.add(new Card(suit,rank,false,"",rank));
+                        
+            }
+        }
+        
+        
+    }
+   
+   
 }
