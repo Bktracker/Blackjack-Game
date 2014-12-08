@@ -6,19 +6,16 @@
 
 package Package;
 
-import Classes.Game;
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author BK
  */
-public class MessageBoxGuiLost extends javax.swing.JFrame {
+public class PushDeck extends javax.swing.JFrame {
 
     /**
-     * Creates new form WinnerBoxGui
+     * Creates new form PushDeck
      */
-    public MessageBoxGuiLost() {
+    public PushDeck() {
         initComponents();
     }
 
@@ -31,33 +28,28 @@ public class MessageBoxGuiLost extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Background = new javax.swing.JLabel();
-        closeB = new javax.swing.JLabel();
+        PushRequest = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/loose-350X140.png"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 140));
-
-        closeB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        closeB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                closeBMouseReleased(evt);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formFocusLost(evt);
             }
         });
-        getContentPane().add(closeB, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 40, 30));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PushRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/push.png"))); // NOI18N
+        getContentPane().add(PushRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 140));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBMouseReleased
+    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
         // TODO add your handling code here:
         this.setVisible(false);
-        new PushDeck().setVisible(true);
-    }//GEN-LAST:event_closeBMouseReleased
+    }//GEN-LAST:event_formFocusLost
 
     /**
      * @param args the command line arguments
@@ -76,29 +68,26 @@ public class MessageBoxGuiLost extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MessageBoxGuiLost.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PushDeck.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MessageBoxGuiLost.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PushDeck.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MessageBoxGuiLost.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PushDeck.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MessageBoxGuiLost.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PushDeck.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                new MessageBoxGuiLost().setVisible(true);
+               new PushDeck().setVisible(true);
+                           
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Background;
-    private javax.swing.JLabel closeB;
+    private javax.swing.JLabel PushRequest;
     // End of variables declaration//GEN-END:variables
-
-    
 }

@@ -10,7 +10,6 @@ import Classes.Card;
 import Classes.Deck;
 import Classes.Game;
 import Classes.Hand;
-import java.awt.Color;
 import java.util.HashMap;
 import javax.swing.JLabel;
 
@@ -23,8 +22,6 @@ public class GameGUI extends javax.swing.JFrame {
     private int jlabelCounterPlayer =0;
      HashMap<String, JLabel> jlabelByName;
     
-    
-
     /**
      * Creates new form GameGUI
      */
@@ -140,9 +137,68 @@ public class GameGUI extends javax.swing.JFrame {
     private void DeckDealMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeckDealMouseReleased
         // TODO add your handling code here:
         
+        dealFunc();
+        
+        //System.out.println(dCard1.toString()+"\n"+dCard2.toString()+"\n"+dCard3.toString()+"\n"+ dCard4.toString());
+        //System.out.println("\n\n\n");
+        //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
+        
+        
+    }//GEN-LAST:event_DeckDealMouseReleased
+
+    private void HitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HitBMouseReleased
+        // TODO add your handling code here:
+        if (Game.playerHand.getSumOfCardValue()<=21)
+        {   String st=null;
+            if (this.jlabelCounterPlayer<9)
+                   {
+                    this.jlabelCounterPlayer++;
+                    st="pCardLabel"+Integer.toString( this.jlabelCounterPlayer);
+                    Card dCard = Game.deck.getDeck(0);
+                    dCard.setSide(true);
+                    Game.playerHand.add(dCard);
+
+                    this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
+                    Game.deck.remove(0);
+                    this.jlabelByName.get(st).setVisible(true);
+                    System.out.println(Game.deck.getDeck().size());
+                    }
+        }
+        if (Game.playerHand.getSumOfCardValue()>=21) 
+        {
+            
+            this.afterStand();
+        }
+            
+        
+        
+    }//GEN-LAST:event_HitBMouseReleased
+    
+    private void dealFunc(){
+    String std= null;
+        String stp= null;
+        for (int i=1;i<10;i++){
+            std="dCardLabel"+Integer.toString(i);
+            jlabelByName.get(std).setVisible(false);
+            stp="pCardLabel"+Integer.toString(i);
+            jlabelByName.get(stp).setVisible(false);
+        }
+        this.jlabelCounterDealer=0;
+        this.jlabelCounterPlayer=0;
+        
+        Game.dealerHand.clear();
+        Game.playerHand.clear();
+        this.HitB.setVisible(true);
+        this.StandB.setVisible(true);
+        System.out.println(Game.deck.getDeck().size());
+        if (Game.deck.isEmpty())
+            Game.deck = new Deck();
+        Game.deck.Suffle();
+        
+        
+        
+        
         String st = null;
-        
-        
         Card dCard1 = Game.deck.getDeck(0);
         dCard1.setSide(true);
         Game.dealerHand.add(dCard1);
@@ -169,6 +225,7 @@ public class GameGUI extends javax.swing.JFrame {
         st="pCardLabel"+Integer.toString( this.jlabelCounterPlayer);
         this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard3.getCardFaceIcon())));
         Game.deck.remove(0);
+        this.jlabelByName.get(st).setVisible(true);
        
 
         
@@ -184,34 +241,8 @@ public class GameGUI extends javax.swing.JFrame {
         this.HitB.setVisible(true);
         this.StandB.setVisible(true);
         
-        //System.out.println(dCard1.toString()+"\n"+dCard2.toString()+"\n"+dCard3.toString()+"\n"+ dCard4.toString());
-        //System.out.println("\n\n\n");
-        //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
-        
-        
-    }//GEN-LAST:event_DeckDealMouseReleased
-
-    private void HitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HitBMouseReleased
-        // TODO add your handling code here:
-        String st=null;
-        if (this.jlabelCounterPlayer<9)
-               {
-                this.jlabelCounterPlayer++;
-                st="pCardLabel"+Integer.toString( this.jlabelCounterPlayer);
-                Card dCard = Game.deck.getDeck(0);
-                dCard.setSide(true);
-                Game.playerHand.add(dCard);
-                //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
-
-                this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
-                Game.deck.remove(0);
-                this.jlabelByName.get(st).setVisible(true);
-                System.out.println(Game.deck.getDeck().size());
-                }
-        
-        
-    }//GEN-LAST:event_HitBMouseReleased
-
+    }
+    
     private void StandBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StandBMouseReleased
         // TODO add your handling code here:
         this.HitB.setVisible(false);
@@ -235,7 +266,7 @@ public class GameGUI extends javax.swing.JFrame {
                      this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
                      this.jlabelCounterDealer++;
                  }
-            while (Game.dealerHand.getSunOfCardValue()<17)
+            while (Game.dealerHand.getSumOfCardValue()<17)
             {
                  if (this.jlabelCounterDealer<9)
                         {
@@ -243,53 +274,65 @@ public class GameGUI extends javax.swing.JFrame {
                          dCard = Game.deck.getDeck(0);
                          dCard.setSide(true);
                          Game.dealerHand.add(dCard);
-                         //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
 
                          this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
                          Game.deck.remove(0);
                          this.jlabelByName.get(st).setVisible(true);
-                         System.out.println(Game.deck.getDeck().size());
+                         //System.out.println(Game.deck.getDeck().size());
                          this.jlabelCounterDealer++;
                          }
             }
-            winnerCheck();
-            
+            this.winnerCheck();
+     
     
     
     
     }
-
+  
     private void winnerCheck()
     {
-     int pSum = Game.playerHand.getSunOfCardValue();
-     int dSum = Game.dealerHand.getSunOfCardValue();
-     
-     if (dSum==pSum)
-         messageBox(false);
-     else
-        if(pSum>21)
+        int pSum = Game.playerHand.getSumOfCardValue();
+        int dSum = Game.dealerHand.getSumOfCardValue();
+        System.out.println("player sum: "+ pSum + " ,dealer sum: "+ dSum);
+
+        if (pSum<=21)
+        {   
+            if (pSum>dSum)
+            {
+            messageBox(true);
+            return;
+            }
+            if (pSum==dSum)
+            {
             messageBox(false);
-        else
-            if (pSum==21)
-                messageBox(true);
-            else 
-                if (pSum>dSum)
+            return;
+            }
+            if (pSum<dSum)
+            {
+                if (dSum>21)
+                {
                     messageBox(true);
-     
-             
-         
-        
+                    return;
+                }
+                else {messageBox(false);}
+            }
+        }
+        else {messageBox(false);}
     }
+    
     private void messageBox(boolean b)
     {
         
-        if (b)
-          new MessageBoxGuiWin().setVisible(true);
-        else
-           new MessageBoxGuiLost().setVisible(true);
+        if (b==true){
+            Game.playerWin++;
+          new MessageBoxGuiWin().setVisible(true);}
+        else{
+            Game.dealerWin++;
+           new MessageBoxGuiLost().setVisible(true);}
             
     }
-    public HashMap myInit()
+    
+    private HashMap myInit()
     {
         Game.deck = new Deck();
         Game.dealerHand = new Hand();
@@ -320,14 +363,18 @@ public class GameGUI extends javax.swing.JFrame {
         jlabelByName.put("pCardLabel2",pCardLabel2);
         jlabelByName.put("pCardLabel1",pCardLabel1);
         
-        String st= null;
-        
+        String std= null;
+        String stp= null;
         for (int i=1;i<10;i++){
-            st="dCardLabel"+Integer.toString(i);
-            jlabelByName.get(st).setVisible(false);
-            jlabelByName.get(st).setVisible(false);
-           
+            std="dCardLabel"+Integer.toString(i);
+            jlabelByName.get(std).setVisible(false);
+            stp="pCardLabel"+Integer.toString(i);
+            jlabelByName.get(stp).setVisible(false);
+          
         }
+        
+       
+        
         
         
         
@@ -365,7 +412,9 @@ public class GameGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GameGUI().setVisible(true);
+                
+                Game.gui = new GameGUI();
+                Game.gui.setVisible(true);
                         
                             
        
@@ -401,4 +450,6 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JLabel pCardLabel8;
     private javax.swing.JLabel pCardLabel9;
     // End of variables declaration//GEN-END:variables
+
+    
 }

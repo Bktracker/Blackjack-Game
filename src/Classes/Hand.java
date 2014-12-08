@@ -18,7 +18,7 @@ public class Hand {
 
     @Override
     public String toString() {
-        return "Hand{" + "hand=" + hand + ", sunOfCardValue=" + sunOfCardValue + '}';
+        return "Hand{" + "hand=" + hand + ", sumOfCardValue=" + sunOfCardValue + '}';
     }
     private  int sunOfCardValue ;
 
@@ -31,8 +31,13 @@ public class Hand {
 
         public void add(Card c) {
         hand.add(c);
-        editSunOfCardValue(c.getValue());
+        editSumOfCardValue(c.getValue());
         
+    }
+
+    public void clear() {
+        hand.clear();
+        sunOfCardValue = 0;
     }
 
     public Card getLast() {
@@ -43,11 +48,11 @@ public class Hand {
         return hand;
     }
 
-    public int getSunOfCardValue() {
+    public int getSumOfCardValue() {
         return sunOfCardValue;
     }
 
-    public void editSunOfCardValue(int num) {
+    public void editSumOfCardValue(int num) {
         this.sunOfCardValue = this.sunOfCardValue+num;
     }
 

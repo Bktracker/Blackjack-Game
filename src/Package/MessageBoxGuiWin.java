@@ -6,8 +6,6 @@
 
 package Package;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author BK
@@ -37,7 +35,7 @@ public class MessageBoxGuiWin extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Win.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/win-350X140.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 140));
 
         closeB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -54,8 +52,10 @@ public class MessageBoxGuiWin extends javax.swing.JFrame {
 
     private void closeBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBMouseReleased
         // TODO add your handling code here:
-        new GameGUI().setVisible(true);
         this.setVisible(false);
+                new PushDeck().setVisible(true);
+
+       
     }//GEN-LAST:event_closeBMouseReleased
 
     /**

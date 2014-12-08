@@ -6,6 +6,8 @@
 
 package Classes;
 
+import Package.GameGUI;
+
 /**
  *
  * @author BK
@@ -14,6 +16,11 @@ public class Game {
     public static Deck deck;
     public static Hand playerHand;
     public static Hand dealerHand;
+    public static GameGUI gui;
+    public static int Score= 0;
+    public static int playerWin= 0;
+    public static int dealerWin = 0;
+
     
 
   

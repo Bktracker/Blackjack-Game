@@ -62,7 +62,16 @@ public class StartGUI extends javax.swing.JFrame {
         });
         getContentPane().add(NewgameB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 290, 90));
 
+        LoadgameB.setForeground(new java.awt.Color(102, 102, 102));
         LoadgameB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadgameB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LoadgameBMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LoadgameBMouseExited(evt);
+            }
+        });
         getContentPane().add(LoadgameB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 290, 90));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src first Launch.png"))); // NOI18N
@@ -86,6 +95,16 @@ public class StartGUI extends javax.swing.JFrame {
         new GameGUI().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_NewgameBMouseReleased
+
+    private void LoadgameBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadgameBMouseEntered
+        // TODO add your handling code here:
+       this.LoadgameB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/unavailable.png")));;
+    }//GEN-LAST:event_LoadgameBMouseEntered
+
+    private void LoadgameBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadgameBMouseExited
+        // TODO add your handling code here:
+        this.LoadgameB.setIcon(null);
+    }//GEN-LAST:event_LoadgameBMouseExited
 
     /**
      * @param args the command line arguments

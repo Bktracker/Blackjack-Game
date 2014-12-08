@@ -16,6 +16,10 @@ public class Card {
    private int rank;
    private Boolean side;
 
+    public int getRank() {
+        return rank;
+    }
+
     @Override
     public String toString() {
         return "Card{" + "suit=" + suit + ", rank=" + rank + ", side=" + side + ", CardFaceIcon=" + CardFaceIcon + ", value=" + value + '}';

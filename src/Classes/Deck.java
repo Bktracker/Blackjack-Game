@@ -21,6 +21,10 @@ public class Deck {
     
    private List deck;
 
+    public boolean isEmpty() {
+        return deck.isEmpty();
+    }
+
     public Deck() {
         this.deck = new ArrayList<>();
         int value = 0;
@@ -46,8 +50,10 @@ public class Deck {
                     case 11:
                     case 12:
                     case 13:
-                    case 14:
                         value = 10;
+                        break;
+                    case 14:
+                        value = 11;
                         break;
                 }
                 switch (suit){
