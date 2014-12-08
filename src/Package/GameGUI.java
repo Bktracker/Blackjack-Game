@@ -6,17 +6,31 @@
 
 package Package;
 
+import Classes.Card;
+import Classes.Deck;
+import Classes.Game;
+import Classes.Hand;
+import java.awt.Color;
+import java.util.HashMap;
+import javax.swing.JLabel;
+
 /**
  *
  * @author BK
  */
 public class GameGUI extends javax.swing.JFrame {
+    private int jlabelCounterDealer =0;
+    private int jlabelCounterPlayer =0;
+     HashMap<String, JLabel> jlabelByName;
+    
+    
 
     /**
      * Creates new form GameGUI
      */
     public GameGUI() {
         initComponents();
+        jlabelByName = myInit();
     }
 
     /**
@@ -67,69 +81,51 @@ public class GameGUI extends javax.swing.JFrame {
         getContentPane().add(SettingsB, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 356, 35, 35));
 
         StandB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        StandB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                StandBMouseReleased(evt);
+            }
+        });
         getContentPane().add(StandB, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 130, 50));
 
         HitB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        HitB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                HitBMouseReleased(evt);
+            }
+        });
         getContentPane().add(HitB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 130, 50));
+
+        DeckDeal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeckDeal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                DeckDealMouseReleased(evt);
+            }
+        });
         getContentPane().add(DeckDeal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 36, 90, 80));
-
-        dCardLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 90, 135));
-
-        dCardLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 90, 135));
-
-        dCardLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 90, 135));
-
-        dCardLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 90, 135));
-
-        dCardLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 90, 135));
-
-        dCardLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 90, 135));
-
-        dCardLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 90, 135));
-
-        dCardLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(dCardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 90, 135));
-
-        dCardLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/h10.png"))); // NOI18N
         getContentPane().add(dCardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 90, 135));
-
-        pCardLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(pCardLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 90, 135));
-
-        pCardLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(pCardLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 90, 135));
-
-        pCardLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(pCardLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 90, 135));
-
-        pCardLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(pCardLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 90, 135));
-
-        pCardLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(pCardLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 90, 135));
 
-        pCardLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         pCardLabel4.setToolTipText("");
         getContentPane().add(pCardLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 90, 135));
-
-        pCardLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png"))); // NOI18N
         getContentPane().add(pCardLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 90, 135));
-
-        pCardLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/d8.png"))); // NOI18N
         getContentPane().add(pCardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 90, 135));
-
-        pCardLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/c10.png"))); // NOI18N
         getContentPane().add(pCardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 135));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src no cards.png"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 404));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -137,9 +133,208 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void SettingsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsBMouseReleased
         new SettingsGUI().setVisible(true);
+        
 
     }//GEN-LAST:event_SettingsBMouseReleased
 
+    private void DeckDealMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeckDealMouseReleased
+        // TODO add your handling code here:
+        
+        String st = null;
+        
+        
+        Card dCard1 = Game.deck.getDeck(0);
+        dCard1.setSide(true);
+        Game.dealerHand.add(dCard1);
+        this.jlabelCounterDealer++;
+        st="dCardLabel"+Integer.toString(this.jlabelCounterDealer);
+        this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard1.getCardFaceIcon())));
+        Game.deck.remove(0);
+        this.jlabelByName.get(st).setVisible(true);
+       
+        //no settin side to true becouse dealer shows only one card
+        Card dCard2 = Game.deck.getDeck(0);
+        Game.dealerHand.add(dCard2);
+        this.jlabelCounterDealer++;
+        st="dCardLabel"+Integer.toString(this.jlabelCounterDealer);
+        this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard2.getCardFaceIcon())));
+        Game.deck.remove(0);
+        this.jlabelByName.get(st).setVisible(true);
+        
+        
+        Card dCard3 = Game.deck.getDeck(0);
+        dCard3.setSide(true);
+        Game.playerHand.add(dCard3);
+        this.jlabelCounterPlayer++;
+        st="pCardLabel"+Integer.toString( this.jlabelCounterPlayer);
+        this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard3.getCardFaceIcon())));
+        Game.deck.remove(0);
+       
+
+        
+        Card dCard4 = Game.deck.getDeck(0);
+        dCard4.setSide(true);
+        Game.playerHand.add(dCard4);
+        this.jlabelCounterPlayer++;
+        st="pCardLabel"+Integer.toString( this.jlabelCounterPlayer);
+        this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard4.getCardFaceIcon())));
+        Game.deck.remove(0);
+        this.jlabelByName.get(st).setVisible(true);
+       
+        this.HitB.setVisible(true);
+        this.StandB.setVisible(true);
+        
+        //System.out.println(dCard1.toString()+"\n"+dCard2.toString()+"\n"+dCard3.toString()+"\n"+ dCard4.toString());
+        //System.out.println("\n\n\n");
+        //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
+        
+        
+    }//GEN-LAST:event_DeckDealMouseReleased
+
+    private void HitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HitBMouseReleased
+        // TODO add your handling code here:
+        String st=null;
+        if (this.jlabelCounterPlayer<9)
+               {
+                this.jlabelCounterPlayer++;
+                st="pCardLabel"+Integer.toString( this.jlabelCounterPlayer);
+                Card dCard = Game.deck.getDeck(0);
+                dCard.setSide(true);
+                Game.playerHand.add(dCard);
+                //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
+
+                this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
+                Game.deck.remove(0);
+                this.jlabelByName.get(st).setVisible(true);
+                System.out.println(Game.deck.getDeck().size());
+                }
+        
+        
+    }//GEN-LAST:event_HitBMouseReleased
+
+    private void StandBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StandBMouseReleased
+        // TODO add your handling code here:
+        this.HitB.setVisible(false);
+        this.StandB.setVisible(false);
+        this.afterStand();
+        
+    }//GEN-LAST:event_StandBMouseReleased
+   
+    private void afterStand ()
+    {
+        
+        
+            String st=null;
+        
+             Card dCard = null;
+             if (this.jlabelCounterDealer==2)
+                 {
+                     st="dCardLabel"+Integer.toString( this.jlabelCounterDealer);
+                     dCard = Game.dealerHand.getLast();
+                     dCard.setSide(true);
+                     this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
+                     this.jlabelCounterDealer++;
+                 }
+            while (Game.dealerHand.getSunOfCardValue()<17)
+            {
+                 if (this.jlabelCounterDealer<9)
+                        {
+                         st="dCardLabel"+Integer.toString( this.jlabelCounterDealer);
+                         dCard = Game.deck.getDeck(0);
+                         dCard.setSide(true);
+                         Game.dealerHand.add(dCard);
+                         //System.out.println(Game.dealerHand.toString()+"\n"+ Game.dealerHand.getSunOfCardValue()+"\n"+Game.playerHand.toString()+"\n"+Game.playerHand.getSunOfCardValue());
+
+                         this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
+                         Game.deck.remove(0);
+                         this.jlabelByName.get(st).setVisible(true);
+                         System.out.println(Game.deck.getDeck().size());
+                         this.jlabelCounterDealer++;
+                         }
+            }
+            winnerCheck();
+            
+    
+    
+    
+    }
+
+    private void winnerCheck()
+    {
+     int pSum = Game.playerHand.getSunOfCardValue();
+     int dSum = Game.dealerHand.getSunOfCardValue();
+     
+     if (dSum==pSum)
+         messageBox(false);
+     else
+        if(pSum>21)
+            messageBox(false);
+        else
+            if (pSum==21)
+                messageBox(true);
+            else 
+                if (pSum>dSum)
+                    messageBox(true);
+     
+             
+         
+        
+    }
+    private void messageBox(boolean b)
+    {
+        
+        if (b)
+          new MessageBoxGuiWin().setVisible(true);
+        else
+           new MessageBoxGuiLost().setVisible(true);
+            
+    }
+    public HashMap myInit()
+    {
+        Game.deck = new Deck();
+        Game.dealerHand = new Hand();
+        Game.playerHand = new Hand();
+        Game.deck.Suffle();
+        this.HitB.setVisible(false);
+        this.StandB.setVisible(false);
+        
+        
+        HashMap<String, JLabel> jlabelByName = new HashMap<String,JLabel>();
+        jlabelByName.put("dCardLabel9",dCardLabel9);
+        jlabelByName.put("dCardLabel8",dCardLabel8);
+        jlabelByName.put("dCardLabel7",dCardLabel7);
+        jlabelByName.put("dCardLabel6",dCardLabel6);
+        jlabelByName.put("dCardLabel5",dCardLabel5);
+        jlabelByName.put("dCardLabel4",dCardLabel4);
+        jlabelByName.put("dCardLabel3",dCardLabel3);
+        jlabelByName.put("dCardLabel2",dCardLabel2);
+        jlabelByName.put("dCardLabel1",dCardLabel1);
+        
+        jlabelByName.put("pCardLabel9",pCardLabel9);
+        jlabelByName.put("pCardLabel8",pCardLabel8);
+        jlabelByName.put("pCardLabel7",pCardLabel7);
+        jlabelByName.put("pCardLabel6",pCardLabel6);
+        jlabelByName.put("pCardLabel5",pCardLabel5);
+        jlabelByName.put("pCardLabel4",pCardLabel4);
+        jlabelByName.put("pCardLabel3",pCardLabel3);
+        jlabelByName.put("pCardLabel2",pCardLabel2);
+        jlabelByName.put("pCardLabel1",pCardLabel1);
+        
+        String st= null;
+        
+        for (int i=1;i<10;i++){
+            st="dCardLabel"+Integer.toString(i);
+            jlabelByName.get(st).setVisible(false);
+            jlabelByName.get(st).setVisible(false);
+           
+        }
+        
+        
+        
+        
+        return jlabelByName;
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -171,7 +366,13 @@ public class GameGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GameGUI().setVisible(true);
+                        
+                            
+       
+                
+                
             }
+            
         });
     }
 

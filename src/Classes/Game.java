@@ -11,5 +11,11 @@ package Classes;
  * @author BK
  */
 public class Game {
+    public static Deck deck;
+    public static Hand playerHand;
+    public static Hand dealerHand;
+    
+
+  
     
 }

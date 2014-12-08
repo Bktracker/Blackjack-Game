@@ -55,6 +55,11 @@ public class StartGUI extends javax.swing.JFrame {
         getContentPane().add(SettingsB, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 356, 35, 35));
 
         NewgameB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewgameB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                NewgameBMouseReleased(evt);
+            }
+        });
         getContentPane().add(NewgameB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 290, 90));
 
         LoadgameB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,6 +80,12 @@ public class StartGUI extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
+
+    private void NewgameBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewgameBMouseReleased
+        // TODO add your handling code here:
+        new GameGUI().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_NewgameBMouseReleased
 
     /**
      * @param args the command line arguments

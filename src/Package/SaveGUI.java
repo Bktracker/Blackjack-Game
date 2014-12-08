@@ -32,7 +32,7 @@ public class SaveGUI extends javax.swing.JFrame {
         SaveName = new javax.swing.JTextField();
         CloseScreen = new javax.swing.JLabel();
         SaveB = new javax.swing.JLabel();
-        BAckground = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,8 +64,8 @@ public class SaveGUI extends javax.swing.JFrame {
         getContentPane().add(CloseScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 80, 30, 20));
         getContentPane().add(SaveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 200, 30));
 
-        BAckground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Save.png"))); // NOI18N
-        getContentPane().add(BAckground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Save.png"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,7 +118,7 @@ public class SaveGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BAckground;
+    private javax.swing.JLabel Background;
     private javax.swing.JLabel CloseScreen;
     private javax.swing.JLabel SaveB;
     private javax.swing.JTextField SaveName;

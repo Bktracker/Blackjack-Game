@@ -72,7 +72,7 @@ public class LoadGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SettingsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsBMouseReleased
-        new SettingsGUI().setVisible(true);
+        this.setVisible(false); 
 
     }//GEN-LAST:event_SettingsBMouseReleased
 

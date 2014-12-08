@@ -56,33 +56,30 @@ public class SettingsGUI extends javax.swing.JFrame {
 
         ReturnB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ReturnB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ReturnBMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ReturnBMouseReleased(evt);
             }
         });
         getContentPane().add(ReturnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 190, 30));
 
         HelpB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         HelpB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HelpBMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                HelpBMouseReleased(evt);
             }
         });
         getContentPane().add(HelpB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 197, 190, 30));
 
         LoadB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LoadB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoadBMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadBMouseReleased(evt);
             }
         });
         getContentPane().add(LoadB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 234, 190, 30));
 
         ExitB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ExitB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitBMouseClicked(evt);
-            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 ExitBMouseReleased(evt);
             }
@@ -98,6 +95,7 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     private void ExitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitBMouseReleased
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_ExitBMouseReleased
 
     private void SettingsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsBMouseReleased
@@ -109,22 +107,20 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void ExitBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitBMouseClicked
-        // TODO create full exit sequal
-        System.exit(0);
-    }//GEN-LAST:event_ExitBMouseClicked
-
-    private void LoadBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadBMouseClicked
-        new LoadGUI().setVisible(true);
-    }//GEN-LAST:event_LoadBMouseClicked
-
-    private void HelpBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpBMouseClicked
-        new HelpGUI().setVisible(true);
-    }//GEN-LAST:event_HelpBMouseClicked
-
-    private void ReturnBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReturnBMouseClicked
+    private void ReturnBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReturnBMouseReleased
+        // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_ReturnBMouseClicked
+    }//GEN-LAST:event_ReturnBMouseReleased
+
+    private void HelpBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpBMouseReleased
+        // TODO add your handling code here:
+        new HelpGUI().setVisible(true);
+    }//GEN-LAST:event_HelpBMouseReleased
+
+    private void LoadBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadBMouseReleased
+        // TODO add your handling code here:
+        new LoadGUI().setVisible(true);
+    }//GEN-LAST:event_LoadBMouseReleased
 
     /**
      * @param args the command line arguments

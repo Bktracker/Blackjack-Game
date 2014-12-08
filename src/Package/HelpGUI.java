@@ -74,7 +74,8 @@ public class HelpGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CloseScreenMouseClicked
 
     private void SettingsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsBMouseReleased
-        new SettingsGUI().setVisible(true);
+        this.setVisible(false);
+        
 
     }//GEN-LAST:event_SettingsBMouseReleased
 
