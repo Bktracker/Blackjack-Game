@@ -174,8 +174,12 @@ public class GameGUI extends javax.swing.JFrame {
                         System.out.println(Game.deck.getDeck().size());
                         }
             }
-            
-            if (Game.playerHand.getSumOfCardValue()>=21) 
+             if (Game.playerHand.getSumOfCardValue()>21) 
+            {
+                this.diableClick();
+                this.winnerCheck();
+            } 
+            if (Game.playerHand.getSumOfCardValue()==21) 
             {
 
                 this.afterStand();
@@ -271,12 +275,16 @@ public class GameGUI extends javax.swing.JFrame {
         this.afterStand();
         
     }//GEN-LAST:event_StandBMouseReleased
-   
-    private void afterStand ()
+    private void diableClick()
     {
         this.HitB.setVisible(false);
         this.StandB.setVisible(false);
         this.deckIsEmpty();
+        
+    }
+    private void afterStand ()
+    {
+        this.diableClick();
         String st=null;
 
          Card dCard = null;
