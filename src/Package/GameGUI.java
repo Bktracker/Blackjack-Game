@@ -171,7 +171,9 @@ public class GameGUI extends javax.swing.JFrame {
                         this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
                         Game.deck.remove(0);
                         this.jlabelByName.get(st).setVisible(true);
+                        /*
                         System.out.println(Game.deck.getDeck().size());
+                        */
                         }
             }
              if (Game.playerHand.getSumOfCardValue()>21) 
@@ -266,7 +268,7 @@ public class GameGUI extends javax.swing.JFrame {
         /* test of values*/
         System.out.println(Game.dealerHand.toString());
         System.out.println(Game.playerHand.toString());
-        /**/
+       /**/
         
     }
     
@@ -296,7 +298,7 @@ public class GameGUI extends javax.swing.JFrame {
                  this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
                  this.jlabelCounterDealer++;
              }
-        while (Game.dealerHand.getSumOfCardValue()<17)
+        while ((Game.dealerHand.getSumOfCardValue()<17) ||(Game.dealerHand.getSumOfCardValue()<Game.playerHand.getSumOfCardValue()))
         {
              if (this.jlabelCounterDealer<9)
                     {
