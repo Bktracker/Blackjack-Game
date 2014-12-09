@@ -6,6 +6,8 @@
 
 package Classes;
 
+import java.util.Objects;
+
 /**
  *
  * @author BK
@@ -14,6 +16,39 @@ public class Card {
 
    private int suit;
    private int rank;
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Card other = (Card) obj;
+        if (this.suit != other.suit) {
+            return false;
+        }
+        if (this.rank != other.rank) {
+            return false;
+        }
+        if (!Objects.equals(this.side, other.side)) {
+            return false;
+        }
+        if (!Objects.equals(this.CardFaceIcon, other.CardFaceIcon)) {
+            return false;
+        }
+        if (this.value != other.value) {
+            return false;
+        }
+        return true;
+    }
    private Boolean side;
 
     public int getRank() {

@@ -29,11 +29,13 @@ public class Hand {
         this.hand = new ArrayList<>();
     }
 
-        public void add(Card c) {
+        public void add(Card c) 
+        {
         hand.add(c);
-        editSumOfCardValue(c.getValue());
         
-    }
+        }
+        
+    
 
     public void clear() {
         hand.clear();
@@ -44,7 +46,7 @@ public class Hand {
         return (Card) hand.get(hand.size()-1);
     }
 
-    public List getHandList() {
+    public List<Card> getHandList() {
         return hand;
     }
 
@@ -53,7 +55,10 @@ public class Hand {
     }
 
     public void editSumOfCardValue(int num) {
+        //System.out.println("sum before "+ this.sunOfCardValue );
+        //System.out.println("card value "+num);
         this.sunOfCardValue = this.sunOfCardValue+num;
+        //System.out.println("sum after "+ this.sunOfCardValue );
     }
 
     public Object remove(int index) {
