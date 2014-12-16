@@ -17,9 +17,9 @@ public class Game {
     public static Hand playerHand;
     public static Hand dealerHand;
     public static GameGUI gui;
-    public static int Score= 0;
     public static int playerWin= 0;
     public static int dealerWin = 0;
+    public static long score = 0;
 
     
 
