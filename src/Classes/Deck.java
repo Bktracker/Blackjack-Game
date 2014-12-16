@@ -19,7 +19,7 @@ public class Deck {
 
     
     
-   private List deck;
+   private List<Card> deck;
 
     public boolean isEmpty() {
         return deck.isEmpty();
@@ -89,7 +89,7 @@ public class Deck {
         }
     }
     
-    public List getDeck() {
+    public List<Card> getDeck() {
         return deck;
     }
 

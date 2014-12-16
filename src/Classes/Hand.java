@@ -14,7 +14,7 @@ import java.util.List;
  * @author BK
  */
 public class Hand {
-    private List hand;
+    private List<Card> hand;
 
     @Override
     public String toString() {
