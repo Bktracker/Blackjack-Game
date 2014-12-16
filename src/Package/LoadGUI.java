@@ -64,7 +64,7 @@ public class LoadGUI extends javax.swing.JFrame {
         getContentPane().add(LoadTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 300, 150));
         getContentPane().add(LoadB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 190, 30));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Load.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Load clean.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

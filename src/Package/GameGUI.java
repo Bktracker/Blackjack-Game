@@ -10,7 +10,6 @@ import Classes.Card;
 import Classes.DealerHand;
 import Classes.Deck;
 import Classes.Game;
-import Classes.Hand;
 import Classes.PlayerHand;
 import java.util.HashMap;
 import javax.swing.JLabel;
@@ -19,19 +18,33 @@ import javax.swing.JLabel;
  *
  * @author BK
  */
-public class GameGUI extends javax.swing.JFrame {
+public class GameGUI extends javax.swing.JFrame 
+{
     private int jlabelCounterDealer = 0;
     private int jlabelCounterPlayer = 0;
-     HashMap<String, JLabel> jlabelByName;
+    HashMap<String, JLabel> jlabelByName;
     
-    /**
+    private void setWinLoose ()
+    {
+    JLabel x = this.winLoose;
+    x.setOpaque(false);
+    x.setVisible(true);
+    x.setText(Game.playerWin+":"+Game.dealerWin); 
+    }
+    private void setScore ()
+    {
+    JLabel x = this.scoreLabel;
+    x.setOpaque(false);
+    x.setVisible(true);
+    x.setText("SCORE: "+Game.score); 
+    }
+     /**
      * Creates new form GameGUI
      */
     public GameGUI() {
         initComponents();
         jlabelByName = myInit();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +76,8 @@ public class GameGUI extends javax.swing.JFrame {
         pCardLabel3 = new javax.swing.JLabel();
         pCardLabel2 = new javax.swing.JLabel();
         pCardLabel1 = new javax.swing.JLabel();
+        scoreLabel = new javax.swing.JLabel();
+        winLoose = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,7 +138,19 @@ public class GameGUI extends javax.swing.JFrame {
         getContentPane().add(pCardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 90, 135));
         getContentPane().add(pCardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 135));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src no cards.png"))); // NOI18N
+        scoreLabel.setFont(new java.awt.Font("MorganBig", 3, 36)); // NOI18N
+        scoreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        scoreLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        getContentPane().add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 30));
+
+        winLoose.setFont(new java.awt.Font("MorganBig", 3, 48)); // NOI18N
+        winLoose.setForeground(new java.awt.Color(255, 255, 255));
+        winLoose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        winLoose.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(winLoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 140, 40));
+
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src clean game.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -132,13 +159,11 @@ public class GameGUI extends javax.swing.JFrame {
 
     private void SettingsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsBMouseReleased
         new SettingsGUI().setVisible(true);
-        
-
+     
     }//GEN-LAST:event_SettingsBMouseReleased
 
     private void DeckDealMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeckDealMouseReleased
-        
-        
+      
         this.dealFunc();
         /* test of values after actions
             System.out.println(dCard1.toString()+"\n"+dCard2.toString()+"\n"+dCard3.toString()+"\n"+ dCard4.toString());
@@ -151,10 +176,8 @@ public class GameGUI extends javax.swing.JFrame {
     private void HitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HitBMouseReleased
        
         this.afterHit(); 
-        
-        
+     
     }//GEN-LAST:event_HitBMouseReleased
-   
     private void afterHit ()
     {
         this.deckIsEmpty();
@@ -178,7 +201,7 @@ public class GameGUI extends javax.swing.JFrame {
             }
              if (Game.playerHand.getSumOfCardValue()>21) 
             {
-                this.diableClick();
+                this.disableClick();
                 this.winnerCheck();
             } 
             if (Game.playerHand.getSumOfCardValue()==21) 
@@ -193,8 +216,9 @@ public class GameGUI extends javax.swing.JFrame {
             Game.deck = new Deck();
         Game.deck.Suffle();
     }
-    private void dealFunc(){
-    String std= null;
+    private void dealFunc()
+    {
+        String std= null;
         String stp= null;
         for (int i=1;i<10;i++){
             std="dCardLabel"+Integer.toString(i);
@@ -209,12 +233,11 @@ public class GameGUI extends javax.swing.JFrame {
         Game.playerHand.clear();
         this.HitB.setVisible(true);
         this.StandB.setVisible(true);
-        System.out.println(Game.deck.getDeck().size());
+        /*System.out.println(Game.deck.getDeck().size());*/
         this.deckIsEmpty();
+        this.setWinLoose();
+        this.setScore();
         
-        
-        
-            
         
         String st = null;
         if(Game.deck.getDeck().size()<4)
@@ -265,19 +288,18 @@ public class GameGUI extends javax.swing.JFrame {
         this.HitB.setVisible(true);
         this.StandB.setVisible(true);
         
-        /* test of values*/
+        /* test of values
         System.out.println(Game.dealerHand.toString());
         System.out.println(Game.playerHand.toString());
        /**/
         
     }
-    
     private void StandBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StandBMouseReleased
     
         this.afterStand();
         
     }//GEN-LAST:event_StandBMouseReleased
-    private void diableClick()
+    private void disableClick()
     {
         this.HitB.setVisible(false);
         this.StandB.setVisible(false);
@@ -286,7 +308,7 @@ public class GameGUI extends javax.swing.JFrame {
     }
     private void afterStand ()
     {
-        this.diableClick();
+        this.disableClick();
         String st=null;
 
          Card dCard = null;
@@ -318,16 +340,12 @@ public class GameGUI extends javax.swing.JFrame {
         }
         this.winnerCheck();
      
-    
-    
-    
     }
-  
     private void winnerCheck()
     {
         int pSum = Game.playerHand.getSumOfCardValue();
         int dSum = Game.dealerHand.getSumOfCardValue();
-        System.out.println("player sum: "+ pSum + " ,dealer sum: "+ dSum);
+        /*System.out.println("player sum: "+ pSum + " ,dealer sum: "+ dSum);*/
 
         if (pSum<=21)
         {   
@@ -353,19 +371,19 @@ public class GameGUI extends javax.swing.JFrame {
         }
         else {messageBox(false);}
     }
-    
     private void messageBox(boolean b)
     {
         
         if (b==true){
             Game.playerWin++;
+            Game.score =Game.score+Game.playerHand.getSumOfCardValue();
           new MessageBoxGuiWin().setVisible(true);}
         else{
             Game.dealerWin++;
+            Game.score =Game.score-Game.playerHand.getSumOfCardValue();
            new MessageBoxGuiLost().setVisible(true);}
             
     }
-    
     private HashMap myInit()
     {
         Game.deck = new Deck();
@@ -374,6 +392,8 @@ public class GameGUI extends javax.swing.JFrame {
         Game.deck.Suffle();
         this.HitB.setVisible(false);
         this.StandB.setVisible(false);
+        this.setWinLoose();
+        this.setScore();
         
         
         HashMap<String, JLabel> jlabelByName = new HashMap<String,JLabel>();
@@ -406,12 +426,6 @@ public class GameGUI extends javax.swing.JFrame {
             jlabelByName.get(stp).setVisible(false);
           
         }
-        
-       
-        
-        
-        
-        
         
         return jlabelByName;
         
@@ -483,7 +497,7 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JLabel pCardLabel7;
     private javax.swing.JLabel pCardLabel8;
     private javax.swing.JLabel pCardLabel9;
+    private javax.swing.JLabel scoreLabel;
+    private javax.swing.JLabel winLoose;
     // End of variables declaration//GEN-END:variables
-
-    
 }

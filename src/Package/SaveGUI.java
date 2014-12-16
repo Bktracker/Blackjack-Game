@@ -64,7 +64,7 @@ public class SaveGUI extends javax.swing.JFrame {
         getContentPane().add(CloseScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 80, 30, 20));
         getContentPane().add(SaveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 200, 30));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Save.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Save clean.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

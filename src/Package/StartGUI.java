@@ -74,7 +74,7 @@ public class StartGUI extends javax.swing.JFrame {
         });
         getContentPane().add(LoadgameB, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 290, 90));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src first Launch.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src first Launch clean.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

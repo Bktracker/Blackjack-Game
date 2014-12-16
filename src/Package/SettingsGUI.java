@@ -86,7 +86,7 @@ public class SettingsGUI extends javax.swing.JFrame {
         });
         getContentPane().add(ExitB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 190, 30));
 
-        SettingsShortBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src first Short Settings.png"))); // NOI18N
+        SettingsShortBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src first Short Settings clean.png"))); // NOI18N
         getContentPane().add(SettingsShortBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
