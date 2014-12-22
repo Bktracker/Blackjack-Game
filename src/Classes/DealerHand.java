@@ -6,13 +6,14 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author BK
  */
-public class DealerHand extends Hand {
+public class DealerHand extends Hand implements Serializable{
 
     public DealerHand() {
     }

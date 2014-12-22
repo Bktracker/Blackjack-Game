@@ -6,6 +6,7 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,11 +16,11 @@ import java.util.Random;
  *
  * @author BK
  */
-public class Deck {
+public class Deck implements Serializable{
 
     
     
-   private List deck;
+   private List<Card> deck;
 
     public boolean isEmpty() {
         return deck.isEmpty();
@@ -81,19 +82,16 @@ public class Deck {
         
         
     }
-    public void Suffle()
-    {
+    public void Suffle() {
         long seed = System.nanoTime();
         for (int i=0;i<7;i++){
         Collections.shuffle(deck, new Random(seed));
         }
     }
     
-    public List getDeck() {
+    public List<Card> getDeck() {
         return deck;
     }
-
-    
 
     public Card getDeck(int i) {
         return (Card) this.deck.get(i);
@@ -102,4 +100,10 @@ public class Deck {
     public Object remove(int index) {
         return deck.remove(index);
     }
+
+    @Override
+    public String toString() {
+        return "Deck{" + deck + '}';
+    }
+
 }

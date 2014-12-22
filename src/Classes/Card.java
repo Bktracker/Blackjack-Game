@@ -6,16 +6,20 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author BK
  */
-public class Card {
+public class Card implements Serializable{
 
    private int suit;
    private int rank;
+   private String CardFaceIcon;
+   private int value;
+   private Boolean side;
 
     @Override
     public int hashCode() {
@@ -49,7 +53,7 @@ public class Card {
         }
         return true;
     }
-   private Boolean side;
+   
 
     public int getRank() {
         return rank;
@@ -57,11 +61,9 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" + "suit=" + suit + ", rank=" + rank + ", side=" + side + ", CardFaceIcon=" + CardFaceIcon + ", value=" + value + '}';
+        return "\nCard{" + "suit=" + suit + ", rank=" + rank + ", side=" + side + ", CardFaceIcon=" + CardFaceIcon + ", value=" + value + "}";
     }
-   private String CardFaceIcon;
-   private int value;
-
+ 
     public Card(int suit, int rank, Boolean side, String CardFaceIcon, int value) {
         this.suit = suit;
         this.rank = rank;

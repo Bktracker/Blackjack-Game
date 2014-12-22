@@ -6,6 +6,7 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,30 +14,26 @@ import java.util.List;
  *
  * @author BK
  */
-public class Hand {
-    private List hand;
+public class Hand implements Serializable{
+    private List<Card> hand;
 
     @Override
     public String toString() {
-        return "Hand{" + "hand=" + hand + ", sumOfCardValue=" + sunOfCardValue + '}';
+        return "Hand{" + "hand=" + hand + ", \nsumOfCardValue=" + sunOfCardValue + '}';
     }
     private  int sunOfCardValue ;
-
-    
 
     public Hand() {
         this.sunOfCardValue = 0;
         this.hand = new ArrayList<>();
     }
 
-        public void add(Card c) 
+    public void add(Card c) 
         {
         hand.add(c);
         
         }
         
-    
-
     public void clear() {
         hand.clear();
         sunOfCardValue = 0;

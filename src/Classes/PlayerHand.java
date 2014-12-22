@@ -6,13 +6,14 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author BK
  */
-public class PlayerHand extends Hand {
+public class PlayerHand extends Hand implements Serializable {
 
     @Override
     public Object remove(int index) {
