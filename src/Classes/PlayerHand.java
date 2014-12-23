@@ -62,8 +62,9 @@ public class PlayerHand extends Hand implements Serializable {
             {
                 if (!super.getHandList().get(i).equals(c))
                     {
-                    if (super.getHandList().get(i).getRank()==14)
+                    if (super.getHandList().get(i).getRank()==14){
                         tempValue = 1;
+                        break;}
                     else 
                         tempValue = 11;
                     }
