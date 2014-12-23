@@ -23,6 +23,11 @@ public class Game implements Serializable {
     public static long score = 0;
     public static long deckDealCounter = 0;
 
+    public Game(long s) {
+        this.setScore(s);
+    }
+    
+
     
     
     @Override

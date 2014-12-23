@@ -30,8 +30,9 @@ public class GameGUI extends javax.swing.JFrame
 {
     private int jlabelCounterDealer = 0;
     private int jlabelCounterPlayer = 0;
-    public Game gamy = new Game();
+    public Game gamy ;
     HashMap<String, JLabel> jlabelByName;
+   
     
     private void setWinLoose (){
     JLabel x = this.winLoose;
@@ -48,7 +49,10 @@ public class GameGUI extends javax.swing.JFrame
      /**
      * Creates new form GameGUI
      */
-    public GameGUI(){
+    public GameGUI() {
+    }
+    public GameGUI(Game g){
+        this.gamy=g;
         initComponents();
         jlabelByName = myInit();
     }
@@ -86,6 +90,7 @@ public class GameGUI extends javax.swing.JFrame
         scoreLabel = new javax.swing.JLabel();
         winLoose = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -159,6 +164,14 @@ public class GameGUI extends javax.swing.JFrame
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src clean game.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -303,6 +316,12 @@ public class GameGUI extends javax.swing.JFrame
         this.afterStand();
         
     }//GEN-LAST:event_StandBMouseReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        System.out.println("------\nload from save\n-------\n"+this.loadGameFromFile("./src/Storage/444.gm"));
+    }//GEN-LAST:event_jButton1ActionPerformed
     public void saveGameToFile (String fileName){
         FileOutputStream fileO = null;
         try {
@@ -318,27 +337,28 @@ public class GameGUI extends javax.swing.JFrame
             Logger.getLogger(GameGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        System.out.println("------\n save\n-------\n"+gamy.toString());
+        
     }
-    public void loadGameFromFile (String fileName) {
+    public Object loadGameFromFile (String fileName) {
         FileInputStream fileI = null;
+        Object saved = null;
         try {
             fileI = new FileInputStream(fileName);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GameGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Game saved=null;
+        
         try {
             ObjectInputStream is = new ObjectInputStream(fileI);
-            saved = (Game)is.readObject();
-        } catch (IOException ex) {
-            Logger.getLogger(GameGUI.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+            saved = is.readObject();
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(GameGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //System.out.println(gamy.toString());
-        System.out.println(saved.toString());
-        
+        //System.out.println("------\nload from save\n-------\n"+saved.toString());
+        return saved;
     }
     private void disableClick()    {
         this.HitB.setVisible(false);
@@ -466,7 +486,7 @@ public class GameGUI extends javax.swing.JFrame
         return jlabelByName;
         
     }
-        public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -518,6 +538,7 @@ public class GameGUI extends javax.swing.JFrame
     private javax.swing.JLabel dCardLabel7;
     private javax.swing.JLabel dCardLabel8;
     private javax.swing.JLabel dCardLabel9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel pCardLabel1;
     private javax.swing.JLabel pCardLabel2;
     private javax.swing.JLabel pCardLabel3;

@@ -6,6 +6,8 @@
 
 package Package;
 
+import Classes.Game;
+
 /**
  *
  * @author BK
@@ -17,6 +19,7 @@ public class StartGUI extends javax.swing.JFrame {
      */
     public StartGUI() {
         initComponents();
+        
     }
 
     /**
@@ -87,7 +90,7 @@ public class StartGUI extends javax.swing.JFrame {
 
     private void NewgameBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewgameBMouseReleased
         // TODO add your handling code here:
-        new GameGUI().setVisible(true);
+        new GameGUI(new Game()).setVisible(true);
         this.setVisible(false);
         new PushDeck().setVisible(true);
     }//GEN-LAST:event_NewgameBMouseReleased
@@ -124,6 +127,7 @@ public class StartGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

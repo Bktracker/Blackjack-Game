@@ -38,6 +38,8 @@ public class HelpGUI extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(204, 204, 0));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         HelpTextArea.setViewportView(jTextArea1);

@@ -6,19 +6,32 @@
 
 package Package;
 
+import Classes.Game;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
 
 /**
  *
  * @author BK
  */
 public class LoadGUI extends javax.swing.JFrame {
+     HashMap<String,JLabel> jlabelLoadByName ;
 
     /**
      * Creates new form LoadGUI
      */
     public LoadGUI() {
         initComponents();
+        jlabelLoadByName = myInit();
+        setLoadBoard();
+       
     }
 
     /**
@@ -32,10 +45,20 @@ public class LoadGUI extends javax.swing.JFrame {
 
         SettingsB = new javax.swing.JLabel();
         CloseScreen = new javax.swing.JLabel();
+        LoadB = new javax.swing.JLabel();
+        LoadLabel0 = new javax.swing.JLabel();
+        LoadLabel1 = new javax.swing.JLabel();
+        LoadLabel2 = new javax.swing.JLabel();
+        LoadLabel3 = new javax.swing.JLabel();
+        LoadLabel4 = new javax.swing.JLabel();
+        LoadLabel5 = new javax.swing.JLabel();
+        LoadLabel6 = new javax.swing.JLabel();
+        LoadLabel7 = new javax.swing.JLabel();
+        LoadLabel8 = new javax.swing.JLabel();
+        LoadLabel9 = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
         LoadTextArea = new javax.swing.JScrollPane();
         Txt = new javax.swing.JTextArea();
-        LoadB = new javax.swing.JLabel();
-        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -59,7 +82,100 @@ public class LoadGUI extends javax.swing.JFrame {
         });
         getContentPane().add(CloseScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 80, 30, 20));
 
+        LoadB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadBMouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 190, 30));
+
+        LoadLabel0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel0, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 125, 300, 15));
+
+        LoadLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 300, 15));
+
+        LoadLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 155, 300, 15));
+
+        LoadLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 300, 15));
+
+        LoadLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 185, 300, 15));
+
+        LoadLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 300, 15));
+
+        LoadLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 215, 300, 15));
+
+        LoadLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 300, 15));
+
+        LoadLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 245, 300, 15));
+
+        LoadLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoadLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoadLabel0MouseReleased(evt);
+            }
+        });
+        getContentPane().add(LoadLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 300, 15));
+
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Load clean.png"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         LoadTextArea.setBackground(new java.awt.Color(204, 204, 0));
+        LoadTextArea.setEnabled(false);
+        LoadTextArea.setOpaque(false);
 
         Txt.setEditable(false);
         Txt.setBackground(new java.awt.Color(204, 204, 0));
@@ -69,21 +185,45 @@ public class LoadGUI extends javax.swing.JFrame {
 
         getContentPane().add(LoadTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 124, 326, 158));
 
-        LoadB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LoadB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                LoadBMouseReleased(evt);
-            }
-        });
-        getContentPane().add(LoadB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 190, 30));
-
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/java src Load clean.png"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private HashMap<String,JLabel> myInit()
+    {
+        HashMap<String,JLabel> jlabelLoadByName = new HashMap<String,JLabel>();
+        jlabelLoadByName.put("LoadLabel9",LoadLabel9);
+        jlabelLoadByName.put("LoadLabel8",LoadLabel8);
+        jlabelLoadByName.put("LoadLabel7",LoadLabel7);
+        jlabelLoadByName.put("LoadLabel6",LoadLabel6);
+        jlabelLoadByName.put("LoadLabel5",LoadLabel5);
+        jlabelLoadByName.put("LoadLabel4",LoadLabel4);
+        jlabelLoadByName.put("LoadLabel3",LoadLabel3);
+        jlabelLoadByName.put("LoadLabel2",LoadLabel2);
+        jlabelLoadByName.put("LoadLabel1",LoadLabel1);
+        jlabelLoadByName.put("LoadLabel0",LoadLabel0);
+       
+        
+        return jlabelLoadByName;
+        
+    }
+    private void setLoadBoard ()
+    {
+        File folder = new File("./src/Storage/");
+        File[] listOfFiles = folder.listFiles();
+        
+        String st=null;
+        String gSave=null;
+        //System.out.println(listOfFiles.length);
+        for(int i=0;i<listOfFiles.length;i++){
+            st="LoadLabel"+Integer.toString(i);
+            gSave = i+". "+listOfFiles[i].getName();
+            jlabelLoadByName.get(st).setText(gSave.substring(0,gSave.length()-3));
+            
+           
+        }
+    }
     private void SettingsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsBMouseReleased
         this.setVisible(false); 
 
@@ -95,14 +235,19 @@ public class LoadGUI extends javax.swing.JFrame {
 
     private void LoadBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadBMouseReleased
         // TODO add your handling code here:
-        File folder = new File("./src/Storage/");
-        File[] listOfFiles = folder.listFiles();
-        for(int i=0;i<listOfFiles.length;i++){
-        System.out.println(listOfFiles[i]);
-        this.Txt.append(i+". "+listOfFiles[i].getName()+"\n");
-        }
-        
+      
     }//GEN-LAST:event_LoadBMouseReleased
+
+    private void LoadLabel0MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel0MouseReleased
+        // TODO add your handling code here:
+        String temp = "./src/Storage/"+this.LoadLabel0.getText().substring(3,this.LoadLabel0.getText().length())+".gm";
+        //System.out.println(temp);
+        GameGUI tempG = new GameGUI();
+        System.out.println(tempG.loadGameFromFile(temp).toString());
+        //new GameGUI().setVisible(true);
+        this.setVisible(false);
+        new PushDeck().setVisible(true);
+    }//GEN-LAST:event_LoadLabel0MouseReleased
 
     /**
      * @param args the command line arguments
@@ -144,6 +289,16 @@ public class LoadGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JLabel CloseScreen;
     private javax.swing.JLabel LoadB;
+    private javax.swing.JLabel LoadLabel0;
+    private javax.swing.JLabel LoadLabel1;
+    private javax.swing.JLabel LoadLabel2;
+    private javax.swing.JLabel LoadLabel3;
+    private javax.swing.JLabel LoadLabel4;
+    private javax.swing.JLabel LoadLabel5;
+    private javax.swing.JLabel LoadLabel6;
+    private javax.swing.JLabel LoadLabel7;
+    private javax.swing.JLabel LoadLabel8;
+    private javax.swing.JLabel LoadLabel9;
     private javax.swing.JScrollPane LoadTextArea;
     private javax.swing.JLabel SettingsB;
     private javax.swing.JTextArea Txt;

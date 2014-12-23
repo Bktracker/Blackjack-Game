@@ -112,6 +112,8 @@ public class SaveGUI extends javax.swing.JFrame {
     private void SaveBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBMouseReleased
         // TODO add your handling code here:
         this.gu.saveGameToFile("./src/Storage/"+this.SaveName.getText()+".gm");
+        this.gu.gamy= null;
+        this.gu.loadGameFromFile("./src/Storage/"+this.SaveName.getText()+".gm");
         //this.gu.loadGameFromFile(this.SaveName.getText()+".gm");
         this.setVisible(false);
     }//GEN-LAST:event_SaveBMouseReleased
