@@ -400,7 +400,7 @@ public class GameGUI extends javax.swing.JFrame
         this.winnerCheck();
      
     }
-    private void winnerCheck()    {
+    public void winnerCheck()    {
         int pSum = gamy.playerHand.getSumOfCardValue();
         int dSum = gamy.dealerHand.getSumOfCardValue();
         /*System.out.println("player sum: "+ pSum + " ,dealer sum: "+ dSum);*/
