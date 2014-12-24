@@ -246,7 +246,7 @@ public class LoadGUI extends javax.swing.JFrame {
         System.out.println(tempG.loadGameFromFile(temp).toString());
         //new GameGUI().setVisible(true);
         this.setVisible(false);
-        new PushDeck().setVisible(true);
+        //new PushDeck().setVisible(true);
     }//GEN-LAST:event_LoadLabel0MouseReleased
 
     /**
