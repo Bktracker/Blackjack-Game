@@ -13,6 +13,26 @@ import Classes.Game;
  * @author BK
  */
 public class SettingsGUI extends javax.swing.JFrame {
+    private GameGUI gu;
+
+    public GameGUI getGu() {
+        return gu;
+    }
+
+    public void setGu(GameGUI gu) {
+        this.gu = gu;
+    }
+
+    /**
+     * Creates new form SettingsGUI
+     */
+    
+
+    SettingsGUI(GameGUI aThis) {
+        initComponents();
+        this.setGu(aThis);
+
+    }
 
     /**
      * Creates new form SettingsGUI
@@ -127,7 +147,8 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     private void LoadBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadBMouseReleased
         // TODO add your handling code here:
-        new LoadGUI().setVisible(true);
+        new LoadGUI(this).setVisible(true);
+        this.gu.setVisible(false);
     }//GEN-LAST:event_LoadBMouseReleased
 
     /**

@@ -13,22 +13,16 @@ import java.util.Objects;
  *
  * @author BK
  */
-public class Game implements Serializable {
+public final class Game implements Serializable {
 
-    public static  Deck deck;
-    public static Hand playerHand;
-    public static Hand dealerHand;
-    public static int playerWin= 0;
-    public static int dealerWin = 0;
-    public static long score = 0;
-    public static long deckDealCounter = 0;
+    public   Deck deck;
+    public  Hand playerHand;
+    public  Hand dealerHand;
+    public  int playerWin= 0;
+    public  int dealerWin = 0;
+    public  long score = 0;
+    public  long deckDealCounter = 0;
 
-    public Game(long s) {
-        this.setScore(s);
-    }
-    
-
-    
     
     @Override
     public String toString() {
@@ -55,12 +49,7 @@ public class Game implements Serializable {
         this.deckDealCounter = deckDealCounter;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 8;
-        return hash;
-    }
-
+   
     public Deck getDeck() {
         return deck;
     }
@@ -110,37 +99,7 @@ public class Game implements Serializable {
         this.score = score;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (!Objects.equals(this.deck, other.deck)) {
-            return false;
-        }
-        if (!Objects.equals(this.playerHand, other.playerHand)) {
-            return false;
-        }
-        if (!Objects.equals(this.dealerHand, other.dealerHand)) {
-            return false;
-        }
-       
-        if (this.playerWin != other.playerWin) {
-            return false;
-        }
-        if (this.dealerWin != other.dealerWin) {
-            return false;
-        }
-        if (this.score != other.score) {
-            return false;
-        }
-        return true;
-    }
-
+   
   
 
     

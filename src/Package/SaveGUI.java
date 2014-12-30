@@ -6,6 +6,11 @@
 
 package Package;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author BK
@@ -110,12 +115,21 @@ public class SaveGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveNameActionPerformed
 
     private void SaveBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBMouseReleased
-        // TODO add your handling code here:
-        this.gu.saveGameToFile("./src/Storage/"+this.SaveName.getText()+".gm");
-        this.gu.gamy= null;
-        this.gu.loadGameFromFile("./src/Storage/"+this.SaveName.getText()+".gm");
-        //this.gu.loadGameFromFile(this.SaveName.getText()+".gm");
-        this.setVisible(false);
+        try {
+            // TODO add your handling code here:
+            this.gu.saveGameToFile("./src/Storage/"+this.SaveName.getText()+".gm");
+            
+            this.setVisible(false);
+        } catch (IOException ex) {
+            Logger.getLogger(SaveGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        File folder = new File("./src/Storage/");
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; (i < listOfFiles.length); i++) {
+            listOfFiles[i].setReadOnly();
+            }
+            
+            
     }//GEN-LAST:event_SaveBMouseReleased
 
     

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Classes;
 
 import java.io.Serializable;
@@ -52,37 +51,34 @@ public class PlayerHand extends Hand implements Serializable {
 
     @Override
     public void add(Card c) {
-        
+
         //System.out.println(" sum p before"+super.getSumOfCardValue());
-        super.add(c); 
+        super.add(c);
         int tempValue = 0;
-        if (c.getRank()==14)
-        {
-            for(int i=0;i<super.getHandList().size();i++)
-            {
-                if (!super.getHandList().get(i).equals(c))
-                    {
-                    if (super.getHandList().get(i).getRank()==14){
+        if (c.getRank() == 14) {
+            for (int i = 0; i < super.getHandList().size(); i++) {
+                if (!super.getHandList().get(i).equals(c)) {
+                    if (super.getHandList().get(i).getRank() == 14) {
                         tempValue = 1;
-                        break;}
-                    else 
+                        break;
+                    } else {
                         tempValue = 11;
                     }
-                else tempValue=c.getValue();
+                } else {
+                    tempValue = c.getValue();
+                }
             }
+        } else {
+            tempValue = c.getValue();
         }
-        else
-            tempValue=c.getValue();
-         
+
         super.editSumOfCardValue(tempValue);
         //System.out.println(" sum p after"+super.getSumOfCardValue());
-    
 
     }
 
     public String getSunOfCardValue() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }

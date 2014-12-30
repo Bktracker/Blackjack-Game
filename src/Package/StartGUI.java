@@ -90,14 +90,15 @@ public class StartGUI extends javax.swing.JFrame {
 
     private void NewgameBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewgameBMouseReleased
         // TODO add your handling code here:
-        new GameGUI(new Game()).setVisible(true);
+        new GameGUI(new Game(),true).setVisible(true);
         this.setVisible(false);
         new PushDeck().setVisible(true);
     }//GEN-LAST:event_NewgameBMouseReleased
 
     private void LoadgameBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadgameBMouseReleased
         // TODO add your handling code here:
-        new LoadGUI().setVisible(true);
+        new LoadGUI(this).setVisible(true);
+        
     }//GEN-LAST:event_LoadgameBMouseReleased
 
     /**
