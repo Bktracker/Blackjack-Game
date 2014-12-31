@@ -18,14 +18,22 @@ import java.util.Random;
  */
 public class Deck implements Serializable{
 
-    
-    
-   private List<Card> deck;
+    /**
+     *
+     */
+    private List<Card> deck;
 
+    /**
+     *
+     * @return
+     */
     public boolean isEmpty() {
         return deck.isEmpty();
     }
 
+    /**
+     *
+     */
     public Deck() {
         this.deck = new ArrayList<>();
         int value = 0;
@@ -82,6 +90,10 @@ public class Deck implements Serializable{
         
         
     }
+
+    /**
+     *
+     */
     public void Suffle() {
         long seed = System.nanoTime();
         for (int i=0;i<7;i++){
@@ -89,14 +101,28 @@ public class Deck implements Serializable{
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public List<Card> getDeck() {
         return deck;
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     public Card getDeck(int i) {
         return (Card) this.deck.get(i);
                 }
    
+    /**
+     *
+     * @param index
+     * @return
+     */
     public Object remove(int index) {
         return deck.remove(index);
     }

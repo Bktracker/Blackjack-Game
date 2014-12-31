@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Classes;
 
 import java.io.Serializable;
@@ -13,13 +12,32 @@ import java.util.Objects;
  *
  * @author BK
  */
-public class Card implements Serializable{
+public class Card implements Serializable {
 
-   private int suit;
-   private int rank;
-   private String CardFaceIcon;
-   private int value;
-   private Boolean side;
+    /**
+     *
+     */
+    private int suit;
+
+    /**
+     *
+     */
+    private int rank;
+
+    /**
+     *
+     */
+    private String CardFaceIcon;
+
+    /**
+     *
+     */
+    private int value;
+
+    /**
+     *
+     */
+    private Boolean side;
 
     @Override
     public int hashCode() {
@@ -53,8 +71,11 @@ public class Card implements Serializable{
         }
         return true;
     }
-   
 
+    /**
+     *
+     * @return
+     */
     public int getRank() {
         return rank;
     }
@@ -63,7 +84,15 @@ public class Card implements Serializable{
     public String toString() {
         return "\nCard{" + "suit=" + suit + ", rank=" + rank + ", side=" + side + ", CardFaceIcon=" + CardFaceIcon + ", value=" + value + "}";
     }
- 
+
+    /**
+     *
+     * @param suit
+     * @param rank
+     * @param side
+     * @param CardFaceIcon
+     * @param value
+     */
     public Card(int suit, int rank, Boolean side, String CardFaceIcon, int value) {
         this.suit = suit;
         this.rank = rank;
@@ -72,54 +101,80 @@ public class Card implements Serializable{
         this.value = value;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSuit() {
         return suit;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean isSide() {
         return side;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCardFaceIcon() {
-        if  
-                (!this.isSide())
-                
+        if (!this.isSide()) {
             return "/Package/images/Cards/resize to 90X135/Back.png";
-        else 
+        } else {
             return CardFaceIcon;
-       }
-    
+        }
+    }
 
+    /**
+     *
+     * @return
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     *
+     * @param rank
+     */
     public void setRank(int rank) {
         this.rank = rank;
     }
 
+    /**
+     *
+     * @param suit
+     */
     public void setSuit(int suit) {
         this.suit = suit;
     }
 
+    /**
+     *
+     * @param side
+     */
     public void setSide(Boolean side) {
         this.side = side;
     }
 
+    /**
+     *
+     * @param CardFaceIcon
+     */
     public void setCardFaceIcon(String CardFaceIcon) {
         this.CardFaceIcon = CardFaceIcon;
     }
 
+    /**
+     *
+     * @param value
+     */
     public void setValue(int value) {
         this.value = value;
     }
-    
-   
-    
-   
-    
-   
-           
-   
-    
+
 }

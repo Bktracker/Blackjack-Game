@@ -27,11 +27,29 @@ import javax.swing.JLabel;
  */
 public class GameGUI extends javax.swing.JFrame {
 
+    /**
+     *
+     */
     private int jlabelCounterDealer = 0;
+
+    /**
+     *
+     */
     private int jlabelCounterPlayer = 0;
+
+    /**
+     *
+     */
     private Game gamy;
+
+    /**
+     *
+     */
     HashMap<String, JLabel> jlabelByName;
 
+    /**
+     *
+     */
     private void setWinLoose() {
         JLabel x = this.winLoose;
         x.setOpaque(false);
@@ -39,6 +57,9 @@ public class GameGUI extends javax.swing.JFrame {
         x.setText(gamy.playerWin + ":" + gamy.dealerWin);
     }
 
+    /**
+     *
+     */
     private void setScore() {
         JLabel x = this.scoreLabel;
         x.setOpaque(false);
@@ -52,41 +73,51 @@ public class GameGUI extends javax.swing.JFrame {
     public GameGUI() {
     }
 
+    /**
+     *
+     * @param g
+     * @param freshGame
+     */
     public GameGUI(Game g, boolean freshGame) {
         this.gamy = g;
-        System.out.println(gamy.toString());
+        //System.out.println(gamy.toString());
         initComponents();
         jlabelByName = createHashMap();
-        if (freshGame)
-                this.myInit();
-        else 
+        if (freshGame) {
+            this.myInit();
+        } else {
             setLoadedGame();
-       
+        }
+
     }
 
+    /**
+     *
+     */
     private void setLoadedGame() {
         String st = null;
         for (int i = 0; i < gamy.playerHand.getHandList().size(); i++) {
-            st = "pCardLabel" + Integer.toString(i+1);
+            st = "pCardLabel" + Integer.toString(i + 1);
             Card dCard = gamy.playerHand.getHandList().get(i);
             dCard.setSide(true);
-            System.out.println(st);
+            
             this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
             this.jlabelByName.get(st).setVisible(true);
             jlabelCounterPlayer++;
-            
+
         }
         for (int i = 0; i < gamy.dealerHand.getHandList().size(); i++) {
-            st = "dCardLabel" + Integer.toString(i+1);
+            st = "dCardLabel" + Integer.toString(i + 1);
             Card dCard = gamy.dealerHand.getHandList().get(i);
-            System.out.println(st);
+            
             this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
             this.jlabelByName.get(st).setVisible(true);
             jlabelCounterDealer++;
         }
         this.setWinLoose();
         this.setScore();
-        
+        this.DeckDeal.setVisible(false);
+
     }
 
     /**
@@ -223,6 +254,10 @@ public class GameGUI extends javax.swing.JFrame {
         this.afterHit();
 
     }//GEN-LAST:event_HitBMouseReleased
+
+    /**
+     *
+     */
     private void afterHit() {
         this.deckIsEmpty();
         if (gamy.playerHand.getSumOfCardValue() <= 21) {
@@ -252,6 +287,9 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     */
     private void deckIsEmpty() {
         if (gamy.deck.isEmpty()) {
             gamy.deck = new Deck();
@@ -259,6 +297,9 @@ public class GameGUI extends javax.swing.JFrame {
         gamy.deck.Suffle();
     }
 
+    /**
+     *
+     */
     private void dealFunc() {
         String std = null;
         String stp = null;
@@ -331,6 +372,7 @@ public class GameGUI extends javax.swing.JFrame {
 
         this.HitB.setVisible(true);
         this.StandB.setVisible(true);
+        this.DeckDeal.setVisible(false);
 
         /* test of values
          System.out.println(gamy.dealerHand.toString());
@@ -342,6 +384,12 @@ public class GameGUI extends javax.swing.JFrame {
         this.afterStand();
 
     }//GEN-LAST:event_StandBMouseReleased
+
+    /**
+     *
+     * @param fileName
+     * @throws IOException
+     */
     public void saveGameToFile(String fileName) throws IOException {
         FileOutputStream fileO = null;
         ObjectOutputStream os = null;
@@ -355,7 +403,7 @@ public class GameGUI extends javax.swing.JFrame {
             os = new ObjectOutputStream(fileO);
             os.writeObject(gamy);
 
-            System.out.println(os.toString());
+            
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -363,11 +411,17 @@ public class GameGUI extends javax.swing.JFrame {
         } finally {
             os.close();
         }
-        System.out.println(fileO.toString());
+        /*
         System.out.println("------\n save\n-------\n" + gamy.toString());
-
+        */
     }
 
+    /**
+     *
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
     public Game loadGameFromFile(String fileName) throws IOException {
         FileInputStream fileI = null;
         ObjectInputStream is = null;
@@ -390,11 +444,15 @@ public class GameGUI extends javax.swing.JFrame {
             is.close();
         }
 
-        //System.out.println(gamy.toString());
-        //System.out.println("------\nload from save\n-------\n"+saved.toString());
+        /*
+        System.out.println("------\nload from save\n-------\n"+saved.toString());
+        */
         return saved;
     }
 
+    /**
+     *
+     */
     private void disableClick() {
         this.HitB.setVisible(false);
         this.StandB.setVisible(false);
@@ -402,6 +460,9 @@ public class GameGUI extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     */
     private void afterStand() {
         this.disableClick();
         String st = null;
@@ -425,8 +486,8 @@ public class GameGUI extends javax.swing.JFrame {
                 gamy.deck.remove(0);
                 this.jlabelByName.get(st).setVisible(true);
                 /* test of values after actions
-                 */
-                System.out.println(gamy.deck.getDeck().size());/*
+                 
+                System.out.println(gamy.deck.getDeck().size());
                  */
 
                 this.jlabelCounterDealer++;
@@ -436,10 +497,15 @@ public class GameGUI extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     */
     public void winnerCheck() {
         int pSum = gamy.playerHand.getSumOfCardValue();
         int dSum = gamy.dealerHand.getSumOfCardValue();
-        /*System.out.println("player sum: "+ pSum + " ,dealer sum: "+ dSum);*/
+        /*
+        System.out.println("player sum: "+ pSum + " ,dealer sum: "+ dSum);
+        */
 
         if (pSum <= 21) {
             if (pSum > dSum) {
@@ -463,6 +529,10 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     * @param b
+     */
     private void messageBox(boolean b) {
 
         if (b == true) {
@@ -474,9 +544,12 @@ public class GameGUI extends javax.swing.JFrame {
             gamy.score = gamy.score - gamy.playerHand.getSumOfCardValue();
             new MessageBoxGuiLost().setVisible(true);
         }
-
+        this.DeckDeal.setVisible(true);
     }
 
+    /**
+     *
+     */
     private void myInit() {
         gamy.deck = new Deck();
         gamy.dealerHand = new DealerHand();
@@ -488,43 +561,50 @@ public class GameGUI extends javax.swing.JFrame {
         this.setScore();
 
     }
-    
-    private HashMap<String,JLabel> createHashMap ()
-    {
-        HashMap<String, JLabel> jlabelByName = new HashMap<String, JLabel>();
-        jlabelByName.put("dCardLabel9", dCardLabel9);
-        jlabelByName.put("dCardLabel8", dCardLabel8);
-        jlabelByName.put("dCardLabel7", dCardLabel7);
-        jlabelByName.put("dCardLabel6", dCardLabel6);
-        jlabelByName.put("dCardLabel5", dCardLabel5);
-        jlabelByName.put("dCardLabel4", dCardLabel4);
-        jlabelByName.put("dCardLabel3", dCardLabel3);
-        jlabelByName.put("dCardLabel2", dCardLabel2);
-        jlabelByName.put("dCardLabel1", dCardLabel1);
 
-        jlabelByName.put("pCardLabel9", pCardLabel9);
-        jlabelByName.put("pCardLabel8", pCardLabel8);
-        jlabelByName.put("pCardLabel7", pCardLabel7);
-        jlabelByName.put("pCardLabel6", pCardLabel6);
-        jlabelByName.put("pCardLabel5", pCardLabel5);
-        jlabelByName.put("pCardLabel4", pCardLabel4);
-        jlabelByName.put("pCardLabel3", pCardLabel3);
-        jlabelByName.put("pCardLabel2", pCardLabel2);
-        jlabelByName.put("pCardLabel1", pCardLabel1);
+    /**
+     *
+     * @return
+     */
+    private HashMap<String, JLabel> createHashMap() {
+        HashMap<String, JLabel> labelByName = new HashMap<String, JLabel>();
+        labelByName.put("dCardLabel9", dCardLabel9);
+        labelByName.put("dCardLabel8", dCardLabel8);
+        labelByName.put("dCardLabel7", dCardLabel7);
+        labelByName.put("dCardLabel6", dCardLabel6);
+        labelByName.put("dCardLabel5", dCardLabel5);
+        labelByName.put("dCardLabel4", dCardLabel4);
+        labelByName.put("dCardLabel3", dCardLabel3);
+        labelByName.put("dCardLabel2", dCardLabel2);
+        labelByName.put("dCardLabel1", dCardLabel1);
+
+        labelByName.put("pCardLabel9", pCardLabel9);
+        labelByName.put("pCardLabel8", pCardLabel8);
+        labelByName.put("pCardLabel7", pCardLabel7);
+        labelByName.put("pCardLabel6", pCardLabel6);
+        labelByName.put("pCardLabel5", pCardLabel5);
+        labelByName.put("pCardLabel4", pCardLabel4);
+        labelByName.put("pCardLabel3", pCardLabel3);
+        labelByName.put("pCardLabel2", pCardLabel2);
+        labelByName.put("pCardLabel1", pCardLabel1);
 
         String std = null;
         String stp = null;
         for (int i = 1; i < 10; i++) {
             std = "dCardLabel" + Integer.toString(i);
-            jlabelByName.get(std).setVisible(false);
+            labelByName.get(std).setVisible(false);
             stp = "pCardLabel" + Integer.toString(i);
-            jlabelByName.get(stp).setVisible(false);
+            labelByName.get(stp).setVisible(false);
 
         }
 
-        return jlabelByName;
+        return labelByName;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

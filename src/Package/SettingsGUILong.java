@@ -13,12 +13,23 @@ import Classes.Game;
  */
 public class SettingsGUILong extends javax.swing.JFrame {
 
+    /**
+     *
+     */
     private GameGUI gu;
 
+    /**
+     *
+     * @return
+     */
     public GameGUI getGu() {
         return gu;
     }
 
+    /**
+     *
+     * @param gu
+     */
     public void setGu(GameGUI gu) {
         this.gu = gu;
     }
@@ -30,6 +41,10 @@ public class SettingsGUILong extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     *
+     * @param aThis
+     */
     SettingsGUILong(GameGUI aThis) {
         initComponents();
         this.setGu(aThis);
@@ -151,7 +166,7 @@ public class SettingsGUILong extends javax.swing.JFrame {
 
     private void NewBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewBMouseReleased
         // TODO add your handling code here:
-        new GameGUI(new Game(),true).setVisible(true);
+        new GameGUI(new Game(), true).setVisible(true);
         this.setVisible(false);
         this.gu.setVisible(false);
         new PushDeck().setVisible(true);
