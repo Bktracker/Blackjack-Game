@@ -9,7 +9,7 @@ import Classes.CardTest;
 import Classes.DealerHandTest;
 import Classes.DeckTest;
 import Classes.PlayerHandTest;
-import Package.GameGUITest;
+import package1.GameGUITest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

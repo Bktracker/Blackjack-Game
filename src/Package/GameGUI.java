@@ -72,6 +72,14 @@ public class GameGUI extends javax.swing.JFrame {
      */
     public GameGUI() {
     }
+    
+    public Game getGamy() {           //////////
+        return gamy;//////////////
+    }//////////////////////////////////////////
+    
+    public void setGamy(Game g) {
+        this.gamy = g;
+    }
 
     /**
      *
@@ -544,7 +552,9 @@ public class GameGUI extends javax.swing.JFrame {
             gamy.score = gamy.score - gamy.playerHand.getSumOfCardValue();
             new MessageBoxGuiLost().setVisible(true);
         }
-        this.DeckDeal.setVisible(true);
+        
+        if (this.DeckDeal != null)      
+            this.DeckDeal.setVisible(true);
     }
 
     /**

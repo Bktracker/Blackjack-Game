@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Package;
+package package1;
 
 import Classes.Game;
+import Package.GameGUI;
+import Package.SaveGUI;
 import Classes.Card;
 import Classes.DealerHand;
 import Classes.Hand;
 import Classes.PlayerHand;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,7 +31,7 @@ public class GameGUITest {
     public GameGUITest() {
         //this.<> = new GameGUI();
     }
-    
+   
     private static PlayerHand ph;
     private static DealerHand dh;
     private static Card hearts2;
@@ -39,7 +44,7 @@ public class GameGUITest {
     
     private static GameGUI gameGui;
     private static Game game;
-    
+   
     @BeforeClass
     public static void setUpClass() {
         hearts2 = new Card(3,2,false,"/Package/images/Cards/resize to 90X135/h2.png",2);
@@ -77,11 +82,25 @@ public class GameGUITest {
         ph.add(hearts14); //12
         dh.add(diamonds14);    //11
         dh.add(clubs9);        //20
+        //game.setDealerHand(dh);
+        //game.setPlayerHand(ph);
+        //gameGui.winnerCheck();
         game.setDealerHand(dh);
         game.setPlayerHand(ph);
+        gameGui.setGamy(game);
         gameGui.winnerCheck();
+        
+        
         assertTrue("Player 0 Dealer 1", game.getDealerWin() == 1 && game.getPlayerWin() == 0);
         assertTrue("score is -12",game.getScore() == -12);
+        // Save game in unique name
+        try {
+        gameGui.saveGameToFile("./src/Storage/uniqueSaveGame.gm");
+        } catch (IOException ex) {
+                Logger.getLogger(SaveGUI.class.getName()).log(Level.SEVERE, null, ex);
+          }   
+        
+        //gameGui.getGamy()
         
         ph.add(clubs14);  //13
         game.setPlayerHand(ph);
@@ -111,6 +130,8 @@ public class GameGUITest {
         game.setDealerHand(dh);
         gameGui.winnerCheck();
         assertTrue("Player 2 Dealer 4", game.getDealerWin() == 4 && game.getPlayerWin() == 2);
-        assertTrue("score is -24",game.getScore() == -24);   
+        assertTrue("score is -24",game.getScore() == -24);  
+        
+       
     }  
 }
