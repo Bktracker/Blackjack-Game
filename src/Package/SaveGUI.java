@@ -20,7 +20,8 @@ public class SaveGUI extends javax.swing.JFrame {
      *
      */
     GameGUI gu;
-    String path = null;
+    String path=null;
+   
 
     /**
      *
@@ -43,6 +44,7 @@ public class SaveGUI extends javax.swing.JFrame {
      */
     public SaveGUI() {
         initComponents();
+        this.path=SaveGUI.pathCreator();
     }
 
     /**
@@ -53,6 +55,7 @@ public class SaveGUI extends javax.swing.JFrame {
         initComponents();
         this.message.setVisible(false);
         this.setGu(gu);
+        this.path=SaveGUI.pathCreator();
 
         //To change body of generated methods, choose Tools | Templates.
     }
@@ -144,15 +147,33 @@ public class SaveGUI extends javax.swing.JFrame {
     private void SaveNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SaveNameActionPerformed
-    private boolean isAlreadyExist() {
+    public static String pathCreator() {
         CharSequence win = "Win";
+        CharSequence mac = "Mac";
+        CharSequence linux = "Lin";
+        String tempPath = null;
+
         String name = System.getProperty("os.name");
 
-        System.out.println(name);
         if (name.contains(win)) {
-            path = "C:\\BlackJack\\";
+            tempPath = "C:\\BlackJack\\";
+            new File(tempPath).mkdir();
         }
-        File folder = new File(path);
+        if (name.contains(mac)) {
+            tempPath = "BlackJack/";
+            new File(tempPath).mkdir();
+        }
+        if (name.contains(linux)) {
+            tempPath = "BlackJack/";
+            new File(tempPath).mkdir();
+        }
+        return tempPath;
+    }
+
+    private boolean isAlreadyExist() {
+        
+
+        File folder = new File(this.path);
         File[] listOfFiles = folder.listFiles();
         for (int i = 0; (i < listOfFiles.length); i++) {
             listOfFiles[i].setReadOnly();
@@ -164,6 +185,7 @@ public class SaveGUI extends javax.swing.JFrame {
     }
 
     private void afterSave() {
+        
         if (this.isAlreadyExist()) {
             this.message.setVisible(true);
         } else {

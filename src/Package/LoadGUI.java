@@ -25,7 +25,8 @@ public class LoadGUI extends javax.swing.JFrame {
     Game loaded;
     StartGUI stg = null;
     SettingsGUI seg = null;
-    String path=null;
+    String path = null;
+   
 
     /**
      *
@@ -67,6 +68,7 @@ public class LoadGUI extends javax.swing.JFrame {
     private void subInit() {
         initComponents();
         jlabelLoadByName = myInit();
+        this.path= SaveGUI.pathCreator();
         setLoadBoard();
     }
 
@@ -246,19 +248,9 @@ public class LoadGUI extends javax.swing.JFrame {
      *
      */
     private void setLoadBoard() {
-        CharSequence win = "Win";
-        String name = System.getProperty("os.name");
         
-        System.out.println(name);
-        if (name.contains(win)) {
-            this.path ="C:\\BlackJack\\";
-            System.out.println("this is windows");
-           new File(this.path).mkdir();
-        } else {
-            System.out.println("this is no windows");
-        }
 
-        File folder = new File(path);
+        File folder = new File(this.path);
         File[] listOfFiles = folder.listFiles();
 
         Arrays.sort(listOfFiles, new Comparator<File>() {
@@ -330,7 +322,7 @@ public class LoadGUI extends javax.swing.JFrame {
      * @param fileStr
      */
     private void loadSavedGame(String fileStr) {
-        String temp = this.path+ fileStr.substring(3, fileStr.length()) + ".gm";
+        String temp = this.path + fileStr.substring(3, fileStr.length()) + ".gm";
 
         GameGUI tempG = new GameGUI();
         Game loadedGame = null;
