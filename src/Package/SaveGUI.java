@@ -20,6 +20,7 @@ public class SaveGUI extends javax.swing.JFrame {
      *
      */
     GameGUI gu;
+    String path = null;
 
     /**
      *
@@ -144,7 +145,14 @@ public class SaveGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SaveNameActionPerformed
     private boolean isAlreadyExist() {
-        File folder = new File("./src/Storage/");
+        CharSequence win = "Win";
+        String name = System.getProperty("os.name");
+
+        System.out.println(name);
+        if (name.contains(win)) {
+            path = "C:\\BlackJack\\";
+        }
+        File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
         for (int i = 0; (i < listOfFiles.length); i++) {
             listOfFiles[i].setReadOnly();
@@ -154,21 +162,23 @@ public class SaveGUI extends javax.swing.JFrame {
         }
         return false;
     }
-    private void SaveBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBMouseReleased
 
-        if (this.isAlreadyExist()) 
-        {
+    private void afterSave() {
+        if (this.isAlreadyExist()) {
             this.message.setVisible(true);
         } else {
             try {
                 // TODO add your handling code here:
-                this.gu.saveGameToFile("./src/Storage/" + this.SaveName.getText() + ".gm");
+                this.gu.saveGameToFile(this.path + this.SaveName.getText() + ".gm");
 
                 this.setVisible(false);
             } catch (IOException ex) {
                 Logger.getLogger(SaveGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    private void SaveBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBMouseReleased
+        afterSave();
 
 
     }//GEN-LAST:event_SaveBMouseReleased

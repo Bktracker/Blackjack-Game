@@ -25,6 +25,7 @@ public class LoadGUI extends javax.swing.JFrame {
     Game loaded;
     StartGUI stg = null;
     SettingsGUI seg = null;
+    String path=null;
 
     /**
      *
@@ -245,7 +246,19 @@ public class LoadGUI extends javax.swing.JFrame {
      *
      */
     private void setLoadBoard() {
-        File folder = new File("./src/Storage/");
+        CharSequence win = "Win";
+        String name = System.getProperty("os.name");
+        
+        System.out.println(name);
+        if (name.contains(win)) {
+            this.path ="C:\\BlackJack\\";
+            System.out.println("this is windows");
+           new File(this.path).mkdir();
+        } else {
+            System.out.println("this is no windows");
+        }
+
+        File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
 
         Arrays.sort(listOfFiles, new Comparator<File>() {
@@ -254,8 +267,9 @@ public class LoadGUI extends javax.swing.JFrame {
                 return Long.valueOf(f2.lastModified()).compareTo(f1.lastModified());
             }
         });
-        if (listOfFiles.length==0)
+        if (listOfFiles.length == 0) {
             this.LoadB.setVisible(false);
+        }
         String st = null;
         String gSave = null;
         for (int i = 0; (i < 10); i++) {
@@ -280,21 +294,34 @@ public class LoadGUI extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_SettingsBMouseReleased
+    private void fixList(int theOne) {
+        String st = null;
+        for (int i = 0; (i < 10); i++) {
+            if (i != theOne) {
+                st = "LoadLabel" + Integer.toString(i);
+                this.jlabelLoadByName.get(st).setForeground(Color.black);
+            } else {
+                continue;
+            }
+        }
 
+    }
     private void CloseScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseScreenMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_CloseScreenMouseClicked
 
     private void LoadBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadBMouseReleased
         // TODO add your handling code here:
-        new GameGUI(this.loaded, false).setVisible(true);
-        if (stg != null) {
-            stg.setVisible(false);
+        if (this.loaded != null) {
+            new GameGUI(this.loaded, false).setVisible(true);
+            if (stg != null) {
+                stg.setVisible(false);
+            }
+            if (seg != null) {
+                seg.setVisible(false);
+            }
+            this.setVisible(false);
         }
-        if (seg != null) {
-            seg.setVisible(false);
-        }
-        this.setVisible(false);
 
     }//GEN-LAST:event_LoadBMouseReleased
 
@@ -303,7 +330,7 @@ public class LoadGUI extends javax.swing.JFrame {
      * @param fileStr
      */
     private void loadSavedGame(String fileStr) {
-        String temp = "./src/Storage/" + fileStr.substring(3, fileStr.length()) + ".gm";
+        String temp = this.path+ fileStr.substring(3, fileStr.length()) + ".gm";
 
         GameGUI tempG = new GameGUI();
         Game loadedGame = null;
@@ -322,6 +349,7 @@ public class LoadGUI extends javax.swing.JFrame {
     private void LoadLabel0MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel0MouseReleased
         // TODO add your handling code here:
         this.LoadLabel0.setForeground(Color.white);
+        this.fixList(0);
         this.loadSavedGame(this.LoadLabel0.getText());
 
     }//GEN-LAST:event_LoadLabel0MouseReleased
@@ -329,54 +357,63 @@ public class LoadGUI extends javax.swing.JFrame {
     private void LoadLabel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel1MouseReleased
         // TODO add your handling code here:
         this.LoadLabel1.setForeground(Color.white);
+        this.fixList(1);
         this.loadSavedGame(this.LoadLabel1.getText());
     }//GEN-LAST:event_LoadLabel1MouseReleased
 
     private void LoadLabel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel2MouseReleased
         // TODO add your handling code here:
         this.LoadLabel2.setForeground(Color.white);
+        this.fixList(2);
         this.loadSavedGame(this.LoadLabel2.getText());
     }//GEN-LAST:event_LoadLabel2MouseReleased
 
     private void LoadLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel3MouseReleased
         // TODO add your handling code here:
         this.LoadLabel3.setForeground(Color.white);
+        this.fixList(3);
         this.loadSavedGame(this.LoadLabel3.getText());
     }//GEN-LAST:event_LoadLabel3MouseReleased
 
     private void LoadLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel4MouseReleased
         // TODO add your handling code here:
         this.LoadLabel4.setForeground(Color.white);
+        this.fixList(4);
         this.loadSavedGame(this.LoadLabel4.getText());
     }//GEN-LAST:event_LoadLabel4MouseReleased
 
     private void LoadLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel5MouseReleased
         // TODO add your handling code here:
         this.LoadLabel5.setForeground(Color.white);
+        this.fixList(5);
         this.loadSavedGame(this.LoadLabel5.getText());
     }//GEN-LAST:event_LoadLabel5MouseReleased
 
     private void LoadLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel6MouseReleased
         // TODO add your handling code here:
         this.LoadLabel6.setForeground(Color.white);
+        this.fixList(6);
         this.loadSavedGame(this.LoadLabel6.getText());
     }//GEN-LAST:event_LoadLabel6MouseReleased
 
     private void LoadLabel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel7MouseReleased
         // TODO add your handling code here:
         this.LoadLabel7.setForeground(Color.white);
+        this.fixList(7);
         this.loadSavedGame(this.LoadLabel7.getText());
     }//GEN-LAST:event_LoadLabel7MouseReleased
 
     private void LoadLabel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel8MouseReleased
         // TODO add your handling code here:
         this.LoadLabel8.setForeground(Color.white);
+        this.fixList(8);
         this.loadSavedGame(this.LoadLabel8.getText());
     }//GEN-LAST:event_LoadLabel8MouseReleased
 
     private void LoadLabel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel9MouseReleased
         // TODO add your handling code here:
         this.LoadLabel9.setForeground(Color.white);
+        this.fixList(9);
         this.loadSavedGame(this.LoadLabel9.getText());
     }//GEN-LAST:event_LoadLabel9MouseReleased
 
