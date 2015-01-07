@@ -6,6 +6,9 @@
 package Package;
 
 import Classes.Game;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -159,8 +162,11 @@ public class SettingsGUILong extends javax.swing.JFrame {
     }//GEN-LAST:event_ReturnBMouseReleased
 
     private void HelpBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpBMouseReleased
-        // TODO add your handling code here:
-        new HelpGUI().setVisible(true);
+        try {
+            new HelpGUI().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(SettingsGUILong.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_HelpBMouseReleased
 
     private void SaveBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBMouseReleased
