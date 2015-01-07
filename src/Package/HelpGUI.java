@@ -8,8 +8,9 @@ package Package;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,10 +84,11 @@ public class HelpGUI extends javax.swing.JFrame {
 
     private void subInit() throws IOException
     {
-        FileReader reader = null;
+        InputStreamReader reader = null;
         this.helpText.setLineWrap(true);
+        InputStream is = this.getClass().getResourceAsStream("/Package/text/Help.txt");
         try {
-            reader = new FileReader( "src/Package/text/Help.txt" );
+            reader = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(reader);
             this.helpText.read( br, null );
             br.close();
