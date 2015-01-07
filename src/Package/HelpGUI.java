@@ -6,6 +6,13 @@
 
 package Package;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author BK
@@ -15,8 +22,10 @@ public class HelpGUI extends javax.swing.JFrame {
     /**
      * Creates new form HelpGUI
      */
-    public HelpGUI() {
+    
+    public HelpGUI() throws IOException {
         initComponents();
+        subInit();
     }
 
     /**
@@ -29,7 +38,7 @@ public class HelpGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         HelpTextArea = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        helpText = new javax.swing.JTextArea();
         SettingsB = new javax.swing.JLabel();
         CloseScreen = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
@@ -38,11 +47,11 @@ public class HelpGUI extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(204, 204, 0));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        HelpTextArea.setViewportView(jTextArea1);
+        helpText.setEditable(false);
+        helpText.setBackground(new java.awt.Color(204, 204, 0));
+        helpText.setColumns(20);
+        helpText.setRows(5);
+        HelpTextArea.setViewportView(helpText);
 
         getContentPane().add(HelpTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 490, 180));
 
@@ -71,6 +80,26 @@ public class HelpGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void subInit() throws IOException
+    {
+        FileReader reader = null;
+        this.helpText.setLineWrap(true);
+        try {
+            reader = new FileReader( "src/Package/text/Help.txt" );
+            BufferedReader br = new BufferedReader(reader);
+            this.helpText.read( br, null );
+            br.close();
+            this.helpText.requestFocus();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HelpGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException ex) {
+                Logger.getLogger(HelpGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     private void CloseScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseScreenMouseClicked
       this.setVisible(false);
     }//GEN-LAST:event_CloseScreenMouseClicked
@@ -112,7 +141,12 @@ public class HelpGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HelpGUI().setVisible(true);
+                try {
+                    new HelpGUI().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(HelpGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         });
     }
@@ -122,6 +156,6 @@ public class HelpGUI extends javax.swing.JFrame {
     private javax.swing.JLabel CloseScreen;
     private javax.swing.JScrollPane HelpTextArea;
     private javax.swing.JLabel SettingsB;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea helpText;
     // End of variables declaration//GEN-END:variables
 }
