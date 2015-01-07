@@ -16,13 +16,31 @@ import static org.junit.Assert.*;
  * test testEquals
  */
 public class CardTest {
+
+    /**
+     *
+     */
     private static Object card1;
+
+    /**
+     *
+     */
     private static Object card2;
+
+    /**
+     *
+     */
     private static Object card3;
     
+    /**
+     *
+     */
     public CardTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
          card1=new Card(2,11,false,"/Package/images/Cards/resize to 90X135/d11.png",10);
@@ -31,6 +49,9 @@ public class CardTest {
         
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
         card1=card2=card3=null;

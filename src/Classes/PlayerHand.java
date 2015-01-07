@@ -16,8 +16,10 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
+     *   index
+     *   
      * @param index
-     * @return
+     * @return 
      */
     @Override
     public Object remove(int index) {
@@ -26,6 +28,7 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
+     *   num
      * @param num
      */
     @Override
@@ -35,7 +38,8 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
-     * @return
+     *   
+     * @return 
      */
     @Override
     public int getSumOfCardValue() {
@@ -44,7 +48,8 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
-     * @return
+     *   
+     * @return 
      */
     @Override
     public List<Card> getHandList() {
@@ -53,13 +58,17 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
-     * @return
+     *   
+     * @return 
      */
     @Override
     public Card getLast() {
         return super.getLast(); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void clear() {
         super.clear(); //To change body of generated methods, choose Tools | Templates.
@@ -72,8 +81,9 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
-     * @param c
+     *   c
      * first ace is 11, other are of value of 1
+     * @param c
      */
     @Override
     public void add(Card c) {
@@ -104,7 +114,8 @@ public class PlayerHand extends Hand implements Serializable {
 
     /**
      *
-     * @return
+     *   
+     * @return 
      */
     public String getSunOfCardValue() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

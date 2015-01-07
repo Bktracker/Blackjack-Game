@@ -23,8 +23,10 @@ public class DealerHand extends Hand implements Serializable{
 
     /**
      *
+     *   index
+     *  
      * @param index
-     * @return
+     * @return 
      */
     @Override
     public Object remove(int index) {
@@ -33,6 +35,7 @@ public class DealerHand extends Hand implements Serializable{
 
     /**
      *
+     *   num
      * @param num
      */
     @Override
@@ -42,7 +45,8 @@ public class DealerHand extends Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     @Override
     public int getSumOfCardValue() {
@@ -51,7 +55,8 @@ public class DealerHand extends Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     @Override
     public List<Card> getHandList() {
@@ -60,7 +65,8 @@ public class DealerHand extends Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     @Override
     public Card getLast() {
@@ -82,8 +88,9 @@ public class DealerHand extends Hand implements Serializable{
     
     /**
      *
-     * @param c
+     *   c
      * first ace is 11 if has less than sum of 10
+     * @param c
      */
     @Override
     public void add(Card c) {
@@ -109,7 +116,9 @@ public class DealerHand extends Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public String getSunOfCardValue() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

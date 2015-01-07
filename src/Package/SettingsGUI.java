@@ -20,7 +20,9 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public GameGUI getGu() {
         return gu;
@@ -28,6 +30,7 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   gu
      * @param gu
      */
     public void setGu(GameGUI gu) {
@@ -36,6 +39,7 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form SettingsGUI
+     *   aThis
      * @param aThis
      */
     SettingsGUI(GameGUI aThis) {
@@ -53,6 +57,7 @@ public class SettingsGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   gamy
      * @param gamy
      */
     SettingsGUI(Game gamy) {
@@ -165,7 +170,8 @@ public class SettingsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_LoadBMouseReleased
 
     /**
-     * @param args the command line arguments
+     *   args the command line arguments
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

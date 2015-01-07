@@ -27,10 +27,29 @@ import javax.swing.JLabel;
  */
 public class GameGUI extends javax.swing.JFrame {
 
+    /**
+     *
+     */
     private int jlabelCounterDealer = 0;
+
+    /**
+     *
+     */
     private int jlabelCounterPlayer = 0;
+
+    /**
+     *
+     */
     private Game gamy;
+
+    /**
+     *
+     */
     HashMap<String, JLabel> jlabelByName;
+
+    /**
+     *
+     */
     private void setWinLoose() {
         JLabel x = this.winLoose;
         x.setOpaque(false);
@@ -38,6 +57,9 @@ public class GameGUI extends javax.swing.JFrame {
         x.setText(gamy.playerWin + ":" + gamy.dealerWin);
     }
 
+    /**
+     *
+     */
     private void setScore() {
         JLabel x = this.scoreLabel;
         x.setOpaque(false);
@@ -51,12 +73,18 @@ public class GameGUI extends javax.swing.JFrame {
     public GameGUI() {
     }
         
+    /**
+     *
+     * @param g
+     */
     public void setGamy(Game g) {
         this.gamy = g;
     }
 
     /**
      *
+     *   g
+     *   freshGame
      * @param g
      * @param freshGame
      */
@@ -72,6 +100,9 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     */
     private void setLoadedGame() {
         String st = null;
         for (int i = 0; i < gamy.playerHand.getHandList().size(); i++) {
@@ -230,6 +261,9 @@ public class GameGUI extends javax.swing.JFrame {
         this.afterHit();
     }//GEN-LAST:event_HitBMouseReleased
 
+    /**
+     *
+     */
     private void afterHit() {
         this.deckIsEmpty();
         if (gamy.playerHand.getSumOfCardValue() <= 21) {
@@ -259,6 +293,9 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     */
     private void deckIsEmpty() {
         if (gamy.deck.isEmpty()) {
             gamy.deck = new Deck();
@@ -266,6 +303,9 @@ public class GameGUI extends javax.swing.JFrame {
         gamy.deck.Suffle();
     }
 
+    /**
+     *
+     */
     private void dealFunc() {
         String std = null;
         String stp = null;
@@ -353,6 +393,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   fileName
      * @param fileName
      * @throws IOException
      */
@@ -384,8 +425,10 @@ public class GameGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   fileName
+     *  
      * @param fileName
-     * @return
+     * @return 
      * @throws IOException
      */
     public Game loadGameFromFile(String fileName) throws IOException {
@@ -416,6 +459,9 @@ public class GameGUI extends javax.swing.JFrame {
         return saved;
     }
 
+    /**
+     *
+     */
     private void disableClick() {
         this.HitB.setVisible(false);
         this.StandB.setVisible(false);
@@ -423,6 +469,9 @@ public class GameGUI extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     */
     private void afterStand() {
         this.disableClick();
         String st = null;
@@ -491,6 +540,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   b
      * @param b
      */
     private void messageBox(boolean b) {
@@ -509,6 +559,9 @@ public class GameGUI extends javax.swing.JFrame {
             this.DeckDeal.setVisible(true);
     }
 
+    /**
+     *
+     */
     private void myInit() {
         gamy.deck = new Deck();
         gamy.dealerHand = new DealerHand();
@@ -523,7 +576,8 @@ public class GameGUI extends javax.swing.JFrame {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     private HashMap<String, JLabel> createHashMap() {
         HashMap<String, JLabel> labelByName = new HashMap<String, JLabel>();
@@ -562,6 +616,7 @@ public class GameGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   args
      * @param args
      */
     public static void main(String args[]) {
@@ -595,7 +650,7 @@ public class GameGUI extends javax.swing.JFrame {
         });
     }
     /**
-     * @param args the command line arguments
+     *   args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

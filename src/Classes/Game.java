@@ -13,12 +13,39 @@ import java.io.Serializable;
  */
 public final class Game implements Serializable {
 
+    /**
+     *
+     */
     public Deck deck;
+
+    /**
+     *
+     */
     public Hand playerHand;
+
+    /**
+     *
+     */
     public Hand dealerHand;
+
+    /**
+     *
+     */
     public int playerWin = 0;
+
+    /**
+     *
+     */
     public int dealerWin = 0;
+
+    /**
+     *
+     */
     public long score = 0;
+
+    /**
+     *
+     */
     public long deckDealCounter = 0;
 
     @Override
@@ -26,11 +53,15 @@ public final class Game implements Serializable {
         return "Game{" + "\ndeck=" + deck + ", \nplayerHand=" + playerHand + ", \ndealerHand=" + dealerHand + ", \nplayerWin=" + playerWin + ", \ndealerWin=" + dealerWin + ", \nscore=" + score + ", \ndeckDealCounter=" + deckDealCounter + '}';
     }
 
+    /**
+     *
+     */
     public Game() {
     }
 
     /**
      *
+     *   g
      * @param g
      */
     public Game(Game g) {
@@ -44,7 +75,8 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public long getDeckDealCounter() {
         return deckDealCounter;
@@ -52,6 +84,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   deckDealCounter
      * @param deckDealCounter
      */
     public void setDeckDealCounter(long deckDealCounter) {
@@ -60,7 +93,9 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public Deck getDeck() {
         return deck;
@@ -68,6 +103,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   deck
      * @param deck
      */
     public void setDeck(Deck deck) {
@@ -76,7 +112,8 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public Hand getPlayerHand() {
         return playerHand;
@@ -84,6 +121,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   playerHand
      * @param playerHand
      */
     public void setPlayerHand(Hand playerHand) {
@@ -92,7 +130,9 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public Hand getDealerHand() {
         return dealerHand;
@@ -100,6 +140,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   dealerHand
      * @param dealerHand
      */
     public void setDealerHand(Hand dealerHand) {
@@ -108,7 +149,8 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public int getPlayerWin() {
         return playerWin;
@@ -116,6 +158,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   playerWin
      * @param playerWin
      */
     public void setPlayerWin(int playerWin) {
@@ -124,7 +167,9 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public int getDealerWin() {
         return dealerWin;
@@ -132,6 +177,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   dealerWin
      * @param dealerWin
      */
     public void setDealerWin(int dealerWin) {
@@ -140,7 +186,8 @@ public final class Game implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public long getScore() {
         return score;
@@ -148,6 +195,7 @@ public final class Game implements Serializable {
 
     /**
      *
+     *   score
      * @param score
      */
     public void setScore(long score) {

@@ -31,6 +31,9 @@ public class Hand implements Serializable{
      */
     private  int sunOfCardValue ;
 
+    /**
+     *
+     */
     public Hand() {
         this.sunOfCardValue = 0;
         this.hand = new ArrayList<>();
@@ -38,6 +41,7 @@ public class Hand implements Serializable{
 
     /**
      *
+     *   c
      * @param c
      */
     public void add(Card c) 
@@ -46,6 +50,9 @@ public class Hand implements Serializable{
         
         }
         
+    /**
+     *
+     */
     public void clear() {
         hand.clear();
         sunOfCardValue = 0;
@@ -53,7 +60,8 @@ public class Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public Card getLast() {
         return (Card) hand.get(hand.size()-1);
@@ -61,7 +69,8 @@ public class Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public List<Card> getHandList() {
         return hand;
@@ -69,7 +78,8 @@ public class Hand implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public int getSumOfCardValue() {
         return sunOfCardValue;
@@ -77,6 +87,7 @@ public class Hand implements Serializable{
 
     /**
      *
+     *   num
      * @param num
      */
     public void editSumOfCardValue(int num) {
@@ -88,8 +99,10 @@ public class Hand implements Serializable{
 
     /**
      *
+     *   index
+     *  
      * @param index
-     * @return
+     * @return 
      */
     public Object remove(int index) {
         return hand.remove(index);

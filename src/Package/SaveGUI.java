@@ -20,12 +20,18 @@ public class SaveGUI extends javax.swing.JFrame {
      *
      */
     GameGUI gu;
+
+    /**
+     *
+     */
     String path=null;
    
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public GameGUI getGu() {
         return gu;
@@ -33,6 +39,7 @@ public class SaveGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   gu
      * @param gu
      */
     public void setGu(GameGUI gu) {
@@ -49,6 +56,7 @@ public class SaveGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   gu
      * @param gu
      */
     SaveGUI(GameGUI gu) {
@@ -147,6 +155,11 @@ public class SaveGUI extends javax.swing.JFrame {
     private void SaveNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SaveNameActionPerformed
+
+    /**
+     *
+     * @return
+     */
     public static String pathCreator() {
         CharSequence win = "Win";
         CharSequence mac = "Mac";
@@ -170,6 +183,10 @@ public class SaveGUI extends javax.swing.JFrame {
         return tempPath;
     }
 
+    /**
+     *
+     * @return
+     */
     private boolean isAlreadyExist() {
         
 
@@ -184,6 +201,9 @@ public class SaveGUI extends javax.swing.JFrame {
         return false;
     }
 
+    /**
+     *
+     */
     private void afterSave() {
         
         if (this.isAlreadyExist()) {
@@ -216,7 +236,8 @@ public class SaveGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_messageFocusLost
 
     /**
-     * @param args the command line arguments
+     *   args the command line arguments
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

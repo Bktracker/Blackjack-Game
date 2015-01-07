@@ -18,18 +18,45 @@ import static org.junit.Assert.*;
  */
 public class PlayerHandTest {
     
+    /**
+     *
+     */
     public PlayerHandTest() {
     }
     
+    /**
+     *
+     */
     private static PlayerHand ph;
+
+    /**
+     *
+     */
     private static Card hearts2;
+
+    /**
+     *
+     */
     private static Card hearts14;
+
+    /**
+     *
+     */
     private static Card diamonds14;
+
+    /**
+     *
+     */
     private static Card clubs14;
+
+    /**
+     *
+     */
     private static Card clubs11;
 
-    
-    
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         hearts2 = new Card(3,2,false,"/Package/images/Cards/resize to 90X135/h2.png",2);
@@ -40,12 +67,18 @@ public class PlayerHandTest {
 
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
         ph = null;
         hearts2 = hearts14 = diamonds14 = clubs14 = clubs11 = null;
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
         ph = new PlayerHand();

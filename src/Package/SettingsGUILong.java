@@ -20,7 +20,9 @@ public class SettingsGUILong extends javax.swing.JFrame {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public GameGUI getGu() {
         return gu;
@@ -28,6 +30,7 @@ public class SettingsGUILong extends javax.swing.JFrame {
 
     /**
      *
+     *   gu
      * @param gu
      */
     public void setGu(GameGUI gu) {
@@ -43,6 +46,7 @@ public class SettingsGUILong extends javax.swing.JFrame {
 
     /**
      *
+     *   aThis
      * @param aThis
      */
     SettingsGUILong(GameGUI aThis) {
@@ -173,7 +177,8 @@ public class SettingsGUILong extends javax.swing.JFrame {
     }//GEN-LAST:event_NewBMouseReleased
 
     /**
-     * @param args the command line arguments
+     *   args the command line arguments
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

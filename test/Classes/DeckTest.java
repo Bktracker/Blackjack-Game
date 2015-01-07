@@ -19,11 +19,25 @@ import static org.junit.Assert.*;
  */
 public class DeckTest {
     
+    /**
+     *
+     */
     public DeckTest() {
     }
+
+    /**
+     *
+     */
     private static Deck deck1;
+
+    /**
+     *
+     */
     private static Deck deck2;
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         deck1 = new Deck();
@@ -33,15 +47,24 @@ public class DeckTest {
           
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
         deck1=deck2=null;
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }

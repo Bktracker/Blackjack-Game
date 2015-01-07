@@ -27,28 +27,93 @@ import static org.junit.Assert.*;
  */
 public class GameGUITest {
         
+    /**
+     *
+     */
     public GameGUITest() {
         //this.<> = new GameGUI();
     }
    
+    /**
+     *
+     */
     private static PlayerHand ph;
+
+    /**
+     *
+     */
     private static DealerHand dh;
+
+    /**
+     *
+     */
     private static Card hearts2;
+
+    /**
+     *
+     */
     private static Card hearts14;
+
+    /**
+     *
+     */
     private static Card diamonds14;
+
+    /**
+     *
+     */
     private static Card clubs14;
+
+    /**
+     *
+     */
     private static Card clubs11;
+
+    /**
+     *
+     */
     private static Card clubs9;
+
+    /**
+     *
+     */
     private static Card clubs7;
     
+    /**
+     *
+     */
     private static GameGUI gameGui;
+
+    /**
+     *
+     */
     private static Game game;
+
+    /**
+     *
+     */
     private static GameGUI gameGui2;
+
+    /**
+     *
+     */
     private static Game game2;
+
+    /**
+     *
+     */
     private static String path;
     
-    int numFilesBefore, numFilesAfter;
+    int numFilesBefore,
+
+    /**
+     *
+     */
+    numFilesAfter;
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         hearts2 = new Card(3,2,false,"/Package/images/Cards/resize to 90X135/h2.png",2);
@@ -69,6 +134,9 @@ public class GameGUITest {
        
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
         ph = null;
@@ -80,6 +148,7 @@ public class GameGUITest {
     /**
      * Test of main method, of class GameGUI.
      * Test winnerCheck and Scores
+     * @return 
      */
     
      private static String testPathCreator() {    // helper function
@@ -105,6 +174,9 @@ public class GameGUITest {
         return tempPath;
     }
 
+    /**
+     *
+     */
     @Test
     public void testMain() {
         System.out.println("main");

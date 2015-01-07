@@ -22,11 +22,29 @@ import javax.swing.JLabel;
  */
 public class LoadGUI extends javax.swing.JFrame {
 
+    /**
+     *
+     */
     Game loaded;
+
+    /**
+     *
+     */
     StartGUI stg = null;
+
+    /**
+     *
+     */
     SettingsGUI seg = null;
+
+    /**
+     *
+     */
     String path = null;
 
+    /**
+     *
+     */
     HashMap<String, JLabel> jlabelLoadByName;
 
     /**
@@ -39,6 +57,7 @@ public class LoadGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   aThis
      * @param aThis
      */
     LoadGUI(StartGUI aThis) {
@@ -50,6 +69,7 @@ public class LoadGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   aThis
      * @param aThis
      */
     LoadGUI(SettingsGUI aThis) {
@@ -58,6 +78,9 @@ public class LoadGUI extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     */
     private void subInit() {
         initComponents();
         jlabelLoadByName = myInit();
@@ -218,7 +241,8 @@ public class LoadGUI extends javax.swing.JFrame {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     private HashMap<String, JLabel> myInit() {
         HashMap<String, JLabel> jlabelLoadByName = new HashMap<String, JLabel>();
@@ -237,7 +261,7 @@ public class LoadGUI extends javax.swing.JFrame {
 
     }
 
-
+   
     private void setLoadBoard() {
         
         File folder = new File(this.path);
@@ -275,6 +299,11 @@ public class LoadGUI extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_SettingsBMouseReleased
+
+    /**
+     *
+     * @param theOne
+     */
     private void fixList(int theOne) {
         String st = null;
         for (int i = 0; (i < 10); i++) {
@@ -306,6 +335,7 @@ public class LoadGUI extends javax.swing.JFrame {
 
     /**
      *
+     *   fileStr
      * @param fileStr
      */
     public void loadSavedGame(String fileStr) {
@@ -397,7 +427,8 @@ public class LoadGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_LoadLabel9MouseReleased
 
     /**
-     * @param args the command line arguments
+     *   args the command line arguments
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

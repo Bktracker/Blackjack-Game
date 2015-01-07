@@ -78,7 +78,8 @@ public class MessageBoxGuiWin extends javax.swing.JFrame {
     }//GEN-LAST:event_formFocusLost
 
     /**
-     * @param args the command line arguments
+     *   args the command line arguments
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

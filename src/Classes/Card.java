@@ -74,7 +74,8 @@ public class Card implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public int getRank() {
         return rank;
@@ -87,10 +88,15 @@ public class Card implements Serializable {
 
     /**
      *
+     *   suit
+     *   rank
+     *   side
+     *   CardFaceIcon
+     *   value
      * @param suit
-     * @param rank
-     * @param side
      * @param CardFaceIcon
+     * @param side
+     * @param rank
      * @param value
      */
     public Card(int suit, int rank, Boolean side, String CardFaceIcon, int value) {
@@ -103,7 +109,8 @@ public class Card implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public int getSuit() {
         return suit;
@@ -111,7 +118,9 @@ public class Card implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public Boolean isSide() {
         return side;
@@ -119,7 +128,8 @@ public class Card implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public String getCardFaceIcon() {
         if (!this.isSide()) {
@@ -131,7 +141,9 @@ public class Card implements Serializable {
 
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public int getValue() {
         return value;
@@ -139,6 +151,7 @@ public class Card implements Serializable {
 
     /**
      *
+     *   rank
      * @param rank
      */
     public void setRank(int rank) {
@@ -147,6 +160,7 @@ public class Card implements Serializable {
 
     /**
      *
+     *   suit
      * @param suit
      */
     public void setSuit(int suit) {
@@ -155,6 +169,7 @@ public class Card implements Serializable {
 
     /**
      *
+     *   side
      * @param side
      */
     public void setSide(Boolean side) {
@@ -163,6 +178,7 @@ public class Card implements Serializable {
 
     /**
      *
+     *   CardFaceIcon
      * @param CardFaceIcon
      */
     public void setCardFaceIcon(String CardFaceIcon) {
@@ -171,6 +187,7 @@ public class Card implements Serializable {
 
     /**
      *
+     *   value
      * @param value
      */
     public void setValue(int value) {

@@ -25,7 +25,8 @@ public class Deck implements Serializable{
 
     /**
      *
-     * @return
+     *  
+     * @return 
      */
     public boolean isEmpty() {
         return deck.isEmpty();
@@ -99,7 +100,9 @@ public class Deck implements Serializable{
     
     /**
      *
-     * @return
+     *  
+     * @return 
+     * @return  
      */
     public List<Card> getDeck() {
         return deck;
@@ -107,8 +110,10 @@ public class Deck implements Serializable{
 
     /**
      *
+     *   i
+     *  
      * @param i
-     * @return
+     * @return 
      */
     public Card getDeck(int i) {
         return (Card) this.deck.get(i);
@@ -116,8 +121,10 @@ public class Deck implements Serializable{
    
     /**
      *
+     *   index
+     *  
      * @param index
-     * @return
+     * @return 
      */
     public Object remove(int index) {
         return deck.remove(index);
