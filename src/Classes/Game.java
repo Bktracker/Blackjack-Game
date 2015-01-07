@@ -13,39 +13,12 @@ import java.io.Serializable;
  */
 public final class Game implements Serializable {
 
-    /**
-     *
-     */
     public Deck deck;
-
-    /**
-     *
-     */
     public Hand playerHand;
-
-    /**
-     *
-     */
     public Hand dealerHand;
-
-    /**
-     *
-     */
     public int playerWin = 0;
-
-    /**
-     *
-     */
     public int dealerWin = 0;
-
-    /**
-     *
-     */
     public long score = 0;
-
-    /**
-     *
-     */
     public long deckDealCounter = 0;
 
     @Override
@@ -53,9 +26,6 @@ public final class Game implements Serializable {
         return "Game{" + "\ndeck=" + deck + ", \nplayerHand=" + playerHand + ", \ndealerHand=" + dealerHand + ", \nplayerWin=" + playerWin + ", \ndealerWin=" + dealerWin + ", \nscore=" + score + ", \ndeckDealCounter=" + deckDealCounter + '}';
     }
 
-    /**
-     *
-     */
     public Game() {
     }
 
@@ -183,5 +153,4 @@ public final class Game implements Serializable {
     public void setScore(long score) {
         this.score = score;
     }
-
 }

@@ -27,13 +27,10 @@ public class Hand implements Serializable{
     }
 
     /**
-     *
+     *sum of cards
      */
     private  int sunOfCardValue ;
 
-    /**
-     *
-     */
     public Hand() {
         this.sunOfCardValue = 0;
         this.hand = new ArrayList<>();
@@ -49,9 +46,6 @@ public class Hand implements Serializable{
         
         }
         
-    /**
-     *
-     */
     public void clear() {
         hand.clear();
         sunOfCardValue = 0;
@@ -99,16 +93,8 @@ public class Hand implements Serializable{
      */
     public Object remove(int index) {
         return hand.remove(index);
-    }
-
-    
-
-    
-    
-    
-        
-        
-    }
+    }         
+}
     
 
   

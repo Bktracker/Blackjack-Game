@@ -27,29 +27,10 @@ import javax.swing.JLabel;
  */
 public class GameGUI extends javax.swing.JFrame {
 
-    /**
-     *
-     */
     private int jlabelCounterDealer = 0;
-
-    /**
-     *
-     */
     private int jlabelCounterPlayer = 0;
-
-    /**
-     *
-     */
     private Game gamy;
-
-    /**
-     *
-     */
     HashMap<String, JLabel> jlabelByName;
-
-    /**
-     *
-     */
     private void setWinLoose() {
         JLabel x = this.winLoose;
         x.setOpaque(false);
@@ -57,9 +38,6 @@ public class GameGUI extends javax.swing.JFrame {
         x.setText(gamy.playerWin + ":" + gamy.dealerWin);
     }
 
-    /**
-     *
-     */
     private void setScore() {
         JLabel x = this.scoreLabel;
         x.setOpaque(false);
@@ -72,11 +50,7 @@ public class GameGUI extends javax.swing.JFrame {
      */
     public GameGUI() {
     }
-    
-    public Game getGamy() {           //////////
-        return gamy;//////////////
-    }//////////////////////////////////////////
-    
+        
     public void setGamy(Game g) {
         this.gamy = g;
     }
@@ -96,12 +70,8 @@ public class GameGUI extends javax.swing.JFrame {
         } else {
             setLoadedGame();
         }
-
     }
 
-    /**
-     *
-     */
     private void setLoadedGame() {
         String st = null;
         for (int i = 0; i < gamy.playerHand.getHandList().size(); i++) {
@@ -112,7 +82,6 @@ public class GameGUI extends javax.swing.JFrame {
             this.jlabelByName.get(st).setIcon(new javax.swing.ImageIcon(getClass().getResource(dCard.getCardFaceIcon())));
             this.jlabelByName.get(st).setVisible(true);
             jlabelCounterPlayer++;
-
         }
         for (int i = 0; i < gamy.dealerHand.getHandList().size(); i++) {
             st = "dCardLabel" + Integer.toString(i + 1);
@@ -125,7 +94,6 @@ public class GameGUI extends javax.swing.JFrame {
         this.setWinLoose();
         this.setScore();
         this.DeckDeal.setVisible(false);
-
     }
 
     /**
@@ -260,12 +228,8 @@ public class GameGUI extends javax.swing.JFrame {
     private void HitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HitBMouseReleased
 
         this.afterHit();
-
     }//GEN-LAST:event_HitBMouseReleased
 
-    /**
-     *
-     */
     private void afterHit() {
         this.deckIsEmpty();
         if (gamy.playerHand.getSumOfCardValue() <= 21) {
@@ -295,9 +259,6 @@ public class GameGUI extends javax.swing.JFrame {
         }
     }
 
-    /**
-     *
-     */
     private void deckIsEmpty() {
         if (gamy.deck.isEmpty()) {
             gamy.deck = new Deck();
@@ -305,9 +266,6 @@ public class GameGUI extends javax.swing.JFrame {
         gamy.deck.Suffle();
     }
 
-    /**
-     *
-     */
     private void dealFunc() {
         String std = null;
         String stp = null;
@@ -458,9 +416,6 @@ public class GameGUI extends javax.swing.JFrame {
         return saved;
     }
 
-    /**
-     *
-     */
     private void disableClick() {
         this.HitB.setVisible(false);
         this.StandB.setVisible(false);
@@ -468,9 +423,6 @@ public class GameGUI extends javax.swing.JFrame {
 
     }
 
-    /**
-     *
-     */
     private void afterStand() {
         this.disableClick();
         String st = null;
@@ -506,7 +458,7 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     /**
-     *
+     * check who won round
      */
     public void winnerCheck() {
         int pSum = gamy.playerHand.getSumOfCardValue();
@@ -557,9 +509,6 @@ public class GameGUI extends javax.swing.JFrame {
             this.DeckDeal.setVisible(true);
     }
 
-    /**
-     *
-     */
     private void myInit() {
         gamy.deck = new Deck();
         gamy.dealerHand = new DealerHand();
@@ -642,9 +591,7 @@ public class GameGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
             }
-
         });
     }
     /**

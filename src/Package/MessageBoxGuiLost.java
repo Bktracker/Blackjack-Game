@@ -107,6 +107,5 @@ public class MessageBoxGuiLost extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JLabel closeB;
     // End of variables declaration//GEN-END:variables
-
-    
+  
 }

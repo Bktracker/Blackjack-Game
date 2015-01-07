@@ -83,6 +83,7 @@ public class DealerHand extends Hand implements Serializable{
     /**
      *
      * @param c
+     * first ace is 11 if has less than sum of 10
      */
     @Override
     public void add(Card c) {
@@ -112,6 +113,5 @@ public class DealerHand extends Hand implements Serializable{
      */
     public String getSunOfCardValue() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }  
 }

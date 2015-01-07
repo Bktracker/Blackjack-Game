@@ -60,9 +60,6 @@ public class PlayerHand extends Hand implements Serializable {
         return super.getLast(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     *
-     */
     @Override
     public void clear() {
         super.clear(); //To change body of generated methods, choose Tools | Templates.
@@ -76,6 +73,7 @@ public class PlayerHand extends Hand implements Serializable {
     /**
      *
      * @param c
+     * first ace is 11, other are of value of 1
      */
     @Override
     public void add(Card c) {
@@ -102,7 +100,6 @@ public class PlayerHand extends Hand implements Serializable {
 
         super.editSumOfCardValue(tempValue);
         //System.out.println(" sum p after"+super.getSumOfCardValue());
-
     }
 
     /**
@@ -112,5 +109,4 @@ public class PlayerHand extends Hand implements Serializable {
     public String getSunOfCardValue() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

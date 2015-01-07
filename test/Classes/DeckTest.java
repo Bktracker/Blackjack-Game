@@ -5,19 +5,17 @@
  */
 package Classes;
 
-import java.util.Arrays;
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 
 /**
  *
  * @author OlegK
+ * 
  */
 public class DeckTest {
     
@@ -47,7 +45,6 @@ public class DeckTest {
     @After
     public void tearDown() {
     }
-
 
     /**
      * Test of Suffle method, of class Deck.
@@ -81,7 +78,5 @@ public class DeckTest {
         //List<Deck> d2 = Arrays.asList(deck2);
   
         //assertThat("shuffle1",d1, is(d2));
-    }
-
-    
+    }   
 }

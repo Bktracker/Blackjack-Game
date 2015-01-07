@@ -5,8 +5,6 @@
  */
 package Classes;
 
-import java.util.List;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -16,6 +14,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author OlegK
+ * Test of add method, of class DealerHand.
  */
 public class PlayerHandTest {
     

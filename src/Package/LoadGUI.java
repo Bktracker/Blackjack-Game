@@ -26,11 +26,7 @@ public class LoadGUI extends javax.swing.JFrame {
     StartGUI stg = null;
     SettingsGUI seg = null;
     String path = null;
-   
 
-    /**
-     *
-     */
     HashMap<String, JLabel> jlabelLoadByName;
 
     /**
@@ -62,9 +58,6 @@ public class LoadGUI extends javax.swing.JFrame {
 
     }
 
-    /**
-     *
-     */
     private void subInit() {
         initComponents();
         jlabelLoadByName = myInit();
@@ -244,12 +237,9 @@ public class LoadGUI extends javax.swing.JFrame {
 
     }
 
-    /**
-     *
-     */
+
     private void setLoadBoard() {
         
-
         File folder = new File(this.path);
         File[] listOfFiles = folder.listFiles();
 
@@ -278,7 +268,6 @@ public class LoadGUI extends javax.swing.JFrame {
             gSave = i + ". " + listOfFiles[i].getName();
             jlabelLoadByName.get(st).setVisible(true);
             jlabelLoadByName.get(st).setText(gSave.substring(0, gSave.length() - 3));
-
         }
     }
 
@@ -296,7 +285,6 @@ public class LoadGUI extends javax.swing.JFrame {
                 continue;
             }
         }
-
     }
     private void CloseScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseScreenMouseClicked
         this.setVisible(false);
@@ -314,7 +302,6 @@ public class LoadGUI extends javax.swing.JFrame {
             }
             this.setVisible(false);
         }
-
     }//GEN-LAST:event_LoadBMouseReleased
 
     /**

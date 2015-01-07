@@ -10,16 +10,12 @@ import Package.GameGUI;
 import Package.SaveGUI;
 import Classes.Card;
 import Classes.DealerHand;
-import Classes.Hand;
 import Classes.PlayerHand;
-import Package.LoadGUI;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -27,10 +23,10 @@ import static org.junit.Assert.*;
 /**
  *
  * @author OlegK
+ * test All scores, load and save
  */
 public class GameGUITest {
-    
-    
+        
     public GameGUITest() {
         //this.<> = new GameGUI();
     }
@@ -53,10 +49,6 @@ public class GameGUITest {
     
     int numFilesBefore, numFilesAfter;
     
-    
-    
-    
-   
     @BeforeClass
     public static void setUpClass() {
         hearts2 = new Card(3,2,false,"/Package/images/Cards/resize to 90X135/h2.png",2);
@@ -84,8 +76,7 @@ public class GameGUITest {
         hearts2 = hearts14 = diamonds14 = clubs14 = clubs11 = clubs9 = clubs7 = null;        
         path = null;
     }
-    
-        
+            
     /**
      * Test of main method, of class GameGUI.
      * Test winnerCheck and Scores
@@ -123,9 +114,7 @@ public class GameGUITest {
         ph.add(hearts14); //12
         dh.add(diamonds14);    //11
         dh.add(clubs9);        //20
-        //game.setDealerHand(dh);
-        //game.setPlayerHand(ph);
-        //gameGui.winnerCheck();
+        
         game.setDealerHand(dh);
         game.setPlayerHand(ph);
         gameGui.setGamy(game);
@@ -156,16 +145,11 @@ public class GameGUITest {
         } catch (IOException ex) {
             Logger.getLogger(GameGUITest.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
         
         //Check if parameters are same
         assertEquals("score", game.score, game2.score);
         assertEquals("dealerWin", game.dealerWin, game2.dealerWin);
         assertEquals("playerWin", game.playerWin, game2.playerWin);
-
-        
-       
-        //gameGui.getGamy()
         
         ph.add(clubs14);  //13
         game.setPlayerHand(ph);
@@ -197,11 +181,11 @@ public class GameGUITest {
         assertTrue("Player 2 Dealer 4", game.getDealerWin() == 4 && game.getPlayerWin() == 2);
         assertTrue("score is -24",game.getScore() == -24); 
         
-        listOfFiles = folder.listFiles();
+        listOfFiles = folder.listFiles();    // delete all test files
         for (int i = 0; (i < listOfFiles.length); i++) {
               listOfFiles[i].delete();
         }
-        folder.delete();
+        folder.delete();      // delete test folder
         
        
     }  

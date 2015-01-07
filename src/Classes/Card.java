@@ -15,27 +15,27 @@ import java.util.Objects;
 public class Card implements Serializable {
 
     /**
-     *
+     * Suit of card
      */
     private int suit;
 
     /**
-     *
+     * Rank of card
      */
     private int rank;
 
     /**
-     *
+     * Card icon
      */
     private String CardFaceIcon;
 
     /**
-     *
+     * Value of card
      */
     private int value;
 
     /**
-     *
+     * True - Card is faced up
      */
     private Boolean side;
 
@@ -176,5 +176,4 @@ public class Card implements Serializable {
     public void setValue(int value) {
         this.value = value;
     }
-
 }

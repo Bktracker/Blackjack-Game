@@ -32,7 +32,7 @@ public class Deck implements Serializable{
     }
 
     /**
-     *
+     * Build deck
      */
     public Deck() {
         this.deck = new ArrayList<>();
@@ -82,17 +82,13 @@ public class Deck implements Serializable{
                 
                 stRank = Integer.toString(rank);
                 //dCardLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Package/images/Cards/resize to 90X135/Back.png")));
-                deck.add(new Card(suit,rank,false,"/Package/images/Cards/resize to 90X135/"+prifix+stRank+".png",value));
-               
-                        
+                deck.add(new Card(suit,rank,false,"/Package/images/Cards/resize to 90X135/"+prifix+stRank+".png",value));      
             }
-        }
-        
-        
+        }             
     }
 
     /**
-     *
+     * shuffle 7 times
      */
     public void Suffle() {
         long seed = System.nanoTime();
@@ -131,5 +127,4 @@ public class Deck implements Serializable{
     public String toString() {
         return "Deck{" + deck + '}';
     }
-
 }
