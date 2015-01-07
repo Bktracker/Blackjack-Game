@@ -12,6 +12,8 @@ import Classes.Card;
 import Classes.DealerHand;
 import Classes.Hand;
 import Classes.PlayerHand;
+import Package.LoadGUI;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +29,7 @@ import static org.junit.Assert.*;
  * @author OlegK
  */
 public class GameGUITest {
+    
     
     public GameGUITest() {
         //this.<> = new GameGUI();
@@ -44,6 +47,15 @@ public class GameGUITest {
     
     private static GameGUI gameGui;
     private static Game game;
+    private static GameGUI gameGui2;
+    private static Game game2;
+    private static String path;
+    
+    int numFilesBefore, numFilesAfter;
+    
+    
+    
+    
    
     @BeforeClass
     public static void setUpClass() {
@@ -59,13 +71,18 @@ public class GameGUITest {
         dh = new DealerHand();
         gameGui = new GameGUI();
         game = new Game();
+        gameGui2 = new GameGUI();
+        game2 = new Game();
+        path = testPathCreator();
+       
     }
     
     @AfterClass
     public static void tearDownClass() {
         ph = null;
         dh = null;
-        hearts2 = hearts14 = diamonds14 = clubs14 = clubs11 = clubs9 = clubs7 = null;
+        hearts2 = hearts14 = diamonds14 = clubs14 = clubs11 = clubs9 = clubs7 = null;        
+        path = null;
     }
     
         
@@ -73,6 +90,30 @@ public class GameGUITest {
      * Test of main method, of class GameGUI.
      * Test winnerCheck and Scores
      */
+    
+     private static String testPathCreator() {    // helper function
+        CharSequence win = "Win";
+        CharSequence mac = "Mac";
+        CharSequence linux = "Lin";
+        String tempPath = null;
+
+        String name = System.getProperty("os.name");
+
+        if (name.contains(win)) {
+            tempPath = "C:\\BlackJackTest\\";
+            new File(tempPath).mkdir();
+        }
+        if (name.contains(mac)) {
+            tempPath = "BlackJackTest/";
+            new File(tempPath).mkdir();
+        }
+        if (name.contains(linux)) {
+            tempPath = "BlackJackTest/";
+            new File(tempPath).mkdir();
+        }
+        return tempPath;
+    }
+
     @Test
     public void testMain() {
         System.out.println("main");
@@ -89,17 +130,41 @@ public class GameGUITest {
         game.setPlayerHand(ph);
         gameGui.setGamy(game);
         gameGui.winnerCheck();
-        
-        
+    
         assertTrue("Player 0 Dealer 1", game.getDealerWin() == 1 && game.getPlayerWin() == 0);
         assertTrue("score is -12",game.getScore() == -12);
+        
         // Save game in unique name
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles();
         try {
-        gameGui.saveGameToFile("./src/Storage/uniqueSaveGame.gm");
+        numFilesBefore = listOfFiles.length;
+        gameGui.saveGameToFile(path + "//uniqueSaveGame.gm");
         } catch (IOException ex) {
                 Logger.getLogger(SaveGUI.class.getName()).log(Level.SEVERE, null, ex);
-          }   
+          }  
         
+        File [] listOfFilesAfter = folder.listFiles();
+        numFilesAfter = listOfFilesAfter.length;
+    
+        assertEquals("1 file added", numFilesBefore+1, numFilesAfter);
+        game2 = game;
+        
+        // load the game uniqueSaveGame.gm
+        try {
+            game2 = gameGui2.loadGameFromFile(path + "//uniqueSaveGame.gm");
+        } catch (IOException ex) {
+            Logger.getLogger(GameGUITest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
+        //Check if parameters are same
+        assertEquals("score", game.score, game2.score);
+        assertEquals("dealerWin", game.dealerWin, game2.dealerWin);
+        assertEquals("playerWin", game.playerWin, game2.playerWin);
+
+        
+       
         //gameGui.getGamy()
         
         ph.add(clubs14);  //13
@@ -130,7 +195,13 @@ public class GameGUITest {
         game.setDealerHand(dh);
         gameGui.winnerCheck();
         assertTrue("Player 2 Dealer 4", game.getDealerWin() == 4 && game.getPlayerWin() == 2);
-        assertTrue("score is -24",game.getScore() == -24);  
+        assertTrue("score is -24",game.getScore() == -24); 
+        
+        listOfFiles = folder.listFiles();
+        for (int i = 0; (i < listOfFiles.length); i++) {
+              listOfFiles[i].delete();
+        }
+        folder.delete();
         
        
     }  

@@ -321,7 +321,7 @@ public class LoadGUI extends javax.swing.JFrame {
      *
      * @param fileStr
      */
-    private void loadSavedGame(String fileStr) {
+    public void loadSavedGame(String fileStr) {
         String temp = this.path + fileStr.substring(3, fileStr.length()) + ".gm";
 
         GameGUI tempG = new GameGUI();
@@ -336,7 +336,7 @@ public class LoadGUI extends javax.swing.JFrame {
 
         this.loaded = loadedGame;
 
-    }
+    } 
 
     private void LoadLabel0MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadLabel0MouseReleased
         // TODO add your handling code here:
